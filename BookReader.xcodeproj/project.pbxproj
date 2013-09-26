@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770B20C617E7674400AF23FB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B20C517E7674400AF23FB /* DetailViewController.m */; };
 		77982EEC17E7628F000631B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEB17E7628F000631B4 /* UIKit.framework */; };
 		77982EEE17E7628F000631B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EED17E7628F000631B4 /* Foundation.framework */; };
 		77982EF017E76290000631B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEF17E7628F000631B4 /* CoreGraphics.framework */; };
