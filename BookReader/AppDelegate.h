@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MasterViewController.h"
+#import "DataSource.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, Booking>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property DataSource *data;
 
 @end

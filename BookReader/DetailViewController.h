@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MasterViewController.h"
+#import "AddPartViewController.h"
+#import "BookS.h"
+#import "PartViewController.h"
+
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, Booking, UITableViewDataSource, UITableViewDelegate>
 {
@@ -18,6 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *button;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addPartButton;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property BookS *books;
+@property Part *partOfBook;
+@property NSString *bookTitle;
+@property BOOL *albumMode;
+
+- (IBAction)addPart:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *partTable;
 

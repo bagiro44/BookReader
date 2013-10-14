@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "AddBookViewController.h"
-#import "Book.h"
+#import "BookS.h"
+#import "Part.h"
+@class AlbumAuthorViewController;
 
 @protocol Booking <NSObject>
 @optional
 -(void) addNewBook;
--(void) didSelectBook:(Book *)book;
+-(void) didSelectBook:(BookS *)book;
+-(void) didSelectAuthor:(Author *)auth;
+-(void) showPart:(Part *)part;
+-(void) showBookAlbum:(Author *)author;
+-(void) changeDetail:(id)controller;
+-(void) goToMain;
 @end
 
 
@@ -22,8 +29,16 @@
     NSMutableArray *books;
 }
 - (IBAction)AddBook:(id)sender;
+- (void) changeSource:(NSNumber *)numberOfChange;
+- (IBAction)mainView:(id)sender;
+@property BOOL *change;
+@property BOOL *albumMode;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBookButton;
 @property (nonatomic, unsafe_unretained) id<Booking> detailDelegate;
+@property (nonatomic, strong) NSArray *authorS;
+@property (nonatomic, weak) NSMutableArray *books;
+- (IBAction)testAction:(id)sender;
+@property BookS *selectBook;
 
 @end

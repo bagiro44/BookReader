@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Author" representedClassName="Author" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookS" inverseName="autho" inverseEntity="BookS" syncable="YES"/>
     </entity>
     <entity name="BookS" representedClassName="BookS" syncable="YES">
-        <attribute name="author" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="genre" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="autho" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" inverseName="book" inverseEntity="Author" syncable="YES"/>
+        <relationship name="genr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="book" inverseEntity="Genre" syncable="YES"/>
+        <relationship name="part" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Part" inverseName="books" inverseEntity="Part" syncable="YES"/>
     </entity>
-    <entity name="Genre" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    <entity name="Genre" representedClassName="Genre" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BookS" syncable="YES"/>
+        <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookS" inverseName="genr" inverseEntity="BookS" syncable="YES"/>
+    </entity>
+    <entity name="Part" representedClassName="Part" syncable="YES">
+        <attribute name="descriptionpart" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BookS" inverseName="part" inverseEntity="BookS" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BookS" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Author" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Genre" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="BookS" positionX="153" positionY="-42" width="128" height="135"/>
+        <element name="Genre" positionX="-92" positionY="132" width="128" height="73"/>
+        <element name="Part" positionX="358" positionY="-15" width="128" height="105"/>
     </elements>
 </model>

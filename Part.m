@@ -1,22 +1,20 @@
 //
-//  BookS.m
+//  Part.m
 //  BookReader
 //
 //  Created by Dmitriy Remezov on 08.10.13.
 //  Copyright (c) 2013 Dmitriy Remezov. All rights reserved.
 //
 
+#import "Part.h"
 #import "BookS.h"
-#import "Author.h"
 
 
-@implementation BookS
+@implementation Part
 
-@dynamic image;
-@dynamic name;
-@dynamic year;
-@dynamic autho;
-@dynamic genr;
-@dynamic part;
+@dynamic title;
+@dynamic descriptionpart;
+@dynamic number;
+@dynamic books;
 
 @end

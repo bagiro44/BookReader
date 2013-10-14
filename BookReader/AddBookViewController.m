@@ -7,17 +7,15 @@
 //
 
 #import "AddBookViewController.h"
+#import "PopoverViewController.h"
 
 @interface AddBookViewController ()
-{
-    PopoverViewController *controller;
-    UIPopoverController *popoverController;
-}
+
 
 @end
 
 @implementation AddBookViewController
-@synthesize addAuthorButton;
+@synthesize addAuthorButton, fetchedResultsController, managedObjectContext, authorPopoverController, authorPopover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,8 +28,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];   
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"save"
                                    style:UIBarButtonItemStyleBordered
@@ -39,54 +36,106 @@
                                    action:@selector(saveBook)];
     self.navigationItem.rightBarButtonItem = saveButton;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AddBookViewController *controller = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"popover"];
-
-    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-
-
+    
+    
 }
 
-- (void) viewWillDisappear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-    NSLog(@"закрыл вкладку");
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)saveBook
 {
+    DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    //[data addBPart:self.yearTextField.text number:self.name.text title:nil desc:nil];
+    [data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-    NSLog(@"сохранил книгу");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)closeView:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) chooseAuthor:(NSString *)authorName numberOfChoise:(NSNumber*)numberOfChoise
+{
+    switch ([numberOfChoise integerValue])
+    {
+        case 0:
+            self.addAuthorButton.titleLabel.text = authorName;
+            break;
+        case 1:
+            self.genreButton.titleLabel.text = authorName;
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (IBAction)addAuthor:(id)sender
 {
-    if ([popoverController isPopoverVisible])
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    authorPopover = (PopoverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"authorPopover"];
+    authorPopover.delegate = self;
+    authorPopover.numberOfChoise = [NSNumber numberWithInteger:0];
+    authorPopoverController = [[UIPopoverController alloc] initWithContentViewController:authorPopover];
+    
+    if ([authorPopoverController isPopoverVisible])
     {
-        [popoverController dismissPopoverAnimated:YES];
-    }
-    else
+        [authorPopoverController dismissPopoverAnimated:YES];
+    } else
     {
         CGRect popRect = CGRectMake(self.addAuthorButton.frame.origin.x,
                                     self.addAuthorButton.frame.origin.y,
                                     self.addAuthorButton.frame.size.width,
                                     self.addAuthorButton.frame.size.height);
-        [popoverController presentPopoverFromRect:popRect
-                                           inView:self.view
-                         permittedArrowDirections:UIPopoverArrowDirectionAny
-                                         animated:YES];
+        [authorPopoverController presentPopoverFromRect:popRect
+                                                 inView:self.view
+                               permittedArrowDirections:UIPopoverArrowDirectionAny
+                                               animated:YES];
     }
 }
+
+- (IBAction)addGenre:(id)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    authorPopover = (PopoverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"authorPopover"];
+    authorPopover.delegate = self;
+    authorPopover.numberOfChoise = [NSNumber numberWithInteger:1];
+    authorPopoverController = [[UIPopoverController alloc] initWithContentViewController:authorPopover];
+    
+    if ([authorPopoverController isPopoverVisible])
+    {
+        [authorPopoverController dismissPopoverAnimated:YES];
+    } else
+    {
+        CGRect popRect = CGRectMake(self.genreButton.frame.origin.x,
+                                    self.genreButton.frame.origin.y,
+                                    self.genreButton.frame.size.width,
+                                    self.genreButton.frame.size.height);
+        [authorPopoverController presentPopoverFromRect:popRect
+                                                 inView:self.view
+                               permittedArrowDirections:UIPopoverArrowDirectionAny
+                                               animated:YES];
+    }
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    
+    
+    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+    }
+}
+
 
 @end
