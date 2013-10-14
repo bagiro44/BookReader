@@ -28,16 +28,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];   
+    [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"save"
                                    style:UIBarButtonItemStyleBordered
                                    target:self
                                    action:@selector(saveBook)];
     self.navigationItem.rightBarButtonItem = saveButton;
-    
-    
-    
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "AddPartViewController.h"
+#import "DetailViewController.h"
 
 @interface AddPartViewController ()
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     _data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
 	// Do any additional setup after loading the view.
 }
@@ -44,8 +46,9 @@
 - (IBAction)SavePart:(id)sender
 {
     [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
-    MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-    [navigationControllerMaster.tableView reloadData];
+    DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+    [navigationControllerMaster.partTable reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 @end

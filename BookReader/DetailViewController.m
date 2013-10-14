@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     self.partTable.hidden = YES;
     self.addPartButton.enabled = NO;
@@ -124,7 +125,6 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"first"];
-    
     [self.navigationController presentModalViewController:addBookViewController animated:YES];
 }
 
@@ -137,7 +137,7 @@
     if ([[self.navigationController.viewControllers lastObject] isMemberOfClass:[PartViewController class]])
     {
         [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:controller animated:NO];
     }    
     
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];

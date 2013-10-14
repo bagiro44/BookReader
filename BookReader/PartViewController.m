@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
     self.navigationItem.title = self.parttt.title;
     self.partDescription.text = self.parttt.descriptionpart;
 }
@@ -34,6 +36,7 @@
     
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
     {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
         MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
         [navigationControllerMaster setChange:NO];
         [navigationControllerMaster setSelectBook:nil];

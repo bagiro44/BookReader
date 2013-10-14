@@ -30,7 +30,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"BookCollectionViewController %@", self.splitViewController.viewControllers);
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"reloadTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"reloadTable"
+                                               object:nil];
+}
+-(void)checkRes:(NSNotification *)notification
+{
+    if ([[notification name] isEqualToString:@"reloadTable"])
+    {
+        [self.BookCollection reloadData];
+    }
+}
+
+- (void) splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+    NSLog(@"willHideViewController");
+    
+    barButtonItem.title = @"Book";
+    [[self navigationItem] setLeftBarButtonItem:barButtonItem animated:YES];
+    
+    masterPopoverController = pc;
+}
+
+- (void) splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    NSLog(@"willHideViewController");
+    [[self navigationItem] setLeftBarButtonItem:nil animated:YES];
+    
+    masterPopoverController = nil;
     
 }
 
@@ -78,14 +106,13 @@
     if ([[self.navigationController.viewControllers lastObject] isMemberOfClass:[PartViewController class]])
     {
         [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:controller animated:NO];
     }else{
-        [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:controller animated:NO];
     }
     
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
     [navigationControllerMaster setChange:YES];
-    //[navigationControllerMaster setSelectBook:self.books];
     [navigationControllerMaster.tableView reloadData];
     
 }
@@ -102,5 +129,25 @@
     [controller setDetailDelegate:detailController];
     self.splitViewController.delegate = detailController;
     self.navigationController.viewControllers = [NSArray arrayWithObject:detailController];
+}
+
+
+
+- (void) addAuthor
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addAuthor"];
+    //[self.navigationController presentModalViewController:addBookViewController animated:YES];
+    [self.navigationController pushViewController:addBookViewController animated:YES];
+}
+- (IBAction)addBook:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"first"];
+    [self.navigationController presentModalViewController:addBookViewController animated:YES];
 }
 @end

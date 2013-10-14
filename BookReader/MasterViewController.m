@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"blockButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"blockButton"
@@ -199,7 +200,14 @@
 
 - (IBAction)AddBook:(id)sender
 {
-    [self.detailDelegate addNewBook];
+    if (albumMode)
+    {
+    [self.detailDelegate addAuthor];
+    }else
+    {
+      [self.detailDelegate addNewBook];
+    }
+   
 }
 
 -(void)checkRes:(NSNotification *)notification

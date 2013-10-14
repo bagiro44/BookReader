@@ -10,11 +10,13 @@
 #import "AddBookViewController.h"
 #import "BookS.h"
 #import "Part.h"
+#import "AddAuthorViewController.h"
 @class AlbumAuthorViewController;
 
 @protocol Booking <NSObject>
 @optional
 -(void) addNewBook;
+-(void) addAuthor;
 -(void) didSelectBook:(BookS *)book;
 -(void) didSelectAuthor:(Author *)auth;
 -(void) showPart:(Part *)part;
@@ -38,6 +40,9 @@
 @property (nonatomic, unsafe_unretained) id<Booking> detailDelegate;
 @property (nonatomic, strong) NSArray *authorS;
 @property (nonatomic, weak) NSMutableArray *books;
+@property AddAuthorViewController *authorPopover;
+@property (nonatomic, strong) UIPopoverController *authorPopoverController;
+
 - (IBAction)testAction:(id)sender;
 @property BookS *selectBook;
 

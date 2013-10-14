@@ -12,9 +12,13 @@
 #import "BookS.h"
 
 
-@interface BookCollectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, Booking>
+@interface BookCollectionViewController : UIViewController <UISplitViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, Booking>
+{
+    UIPopoverController *masterPopoverController;
+}
 
 @property Author *author;
 @property (weak, nonatomic) IBOutlet UICollectionView *BookCollection;
+- (IBAction)addBook:(id)sender;
 
 @end

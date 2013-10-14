@@ -26,6 +26,7 @@
 		7794364318088026006AF862 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794364218088026006AF862 /* BookCollectionCell.m */; };
 		779436491808810B006AF862 /* BookCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779436481808810B006AF862 /* BookCollectionViewController.m */; };
 		7794364F180B585B006AF862 /* AddAuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794364E180B585B006AF862 /* AddAuthorViewController.m */; };
+		77943651180C6C1C006AF862 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 77943650180C6C1C006AF862 /* home.png */; };
 		77982EEC17E7628F000631B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEB17E7628F000631B4 /* UIKit.framework */; };
 		77982EEE17E7628F000631B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EED17E7628F000631B4 /* Foundation.framework */; };
 		77982EF017E76290000631B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEF17E7628F000631B4 /* CoreGraphics.framework */; };
@@ -73,6 +74,7 @@
 		779436481808810B006AF862 /* BookCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewController.m; sourceTree = "<group>"; };
 		7794364D180B585B006AF862 /* AddAuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAuthorViewController.h; sourceTree = "<group>"; };
 		7794364E180B585B006AF862 /* AddAuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAuthorViewController.m; sourceTree = "<group>"; };
+		77943650180C6C1C006AF862 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		77982EE817E7628F000631B4 /* BookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77982EEB17E7628F000631B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77982EED17E7628F000631B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 		771E94CE17F1C881004C46D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77943650180C6C1C006AF862 /* home.png */,
 				7702DAE618068C9100644A99 /* Settings.bundle */,
 				771E94CF17F1C881004C46D4 /* mainBook.png */,
 			);
@@ -264,6 +267,7 @@
 				77982F0517E76290000631B4 /* MainStoryboard.storyboard in Resources */,
 				771E94D017F1C881004C46D4 /* mainBook.png in Resources */,
 				7702DAE718068C9100644A99 /* Settings.bundle in Resources */,
+				77943651180C6C1C006AF862 /* home.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
