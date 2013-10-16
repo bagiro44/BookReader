@@ -73,6 +73,17 @@
 
 - (BOOL) addAuthor:(NSString *)author
 {
+    NSFetchRequest *fetchRequest1 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *authorEntity1 = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(name like[cd] %@)", author];
+    [fetchRequest1 setPredicate:predicate1];
+    [fetchRequest1 setEntity:authorEntity1];
+    NSArray *tempArray = [self.managedObjectContext executeFetchRequest:fetchRequest1 error:nil];
+    if([tempArray count] != 0)
+    {
+        return NO;
+    }
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
     Author *authorToDB = [[Author alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
     authorToDB.name = author;

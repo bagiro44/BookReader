@@ -230,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="2628" y="-1967"/>
         </scene>
-        <!--Add Author View Controller - Title-->
+        <!--Add Author View Controller - Добавление автора-->
         <scene sceneID="FdA-Ve-gzM">
             <objects>
                 <viewController storyboardIdentifier="addAuthor" id="kBS-WH-rr4" customClass="AddAuthorViewController" sceneMemberID="viewController">
@@ -254,7 +254,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="uG4-f7-dv3">
+                    <navigationItem key="navigationItem" title="Добавление автора" id="uG4-f7-dv3">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="mzH-D8-jFa">
                             <connections>
                                 <action selector="saveAction:" destination="kBS-WH-rr4" id="8eJ-AZ-7C8"/>
@@ -299,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="1213" y="-538"/>
         </scene>
-        <!--Add Part View Controller-->
+        <!--Add Part View Controller - Добавление главы-->
         <scene sceneID="g9v-yD-Tyc">
             <objects>
                 <viewController storyboardIdentifier="addPartView" id="8EC-rM-Fxs" customClass="AddPartViewController" sceneMemberID="viewController">
@@ -325,12 +325,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="e9d-O8-hOx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Впишите сюда текст главы добавляемой в книгу..." id="e9d-O8-hOx">
                                 <rect key="frame" x="38" y="115" width="693" height="869"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="8EC-rM-Fxs" id="Kdl-p9-yht"/>
@@ -353,7 +352,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eK3-k0-ipr">
+                    <navigationItem key="navigationItem" title="Добавление главы" id="eK3-k0-ipr">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="E7R-TG-jtk">
                             <connections>
                                 <action selector="SavePart:" destination="8EC-rM-Fxs" id="lNa-WC-lds"/>
@@ -382,7 +381,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.39000000000000001" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -490,29 +489,29 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RlB-uS-VkS">
-                                <rect key="frame" x="197" y="104" width="374" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="94" sectionHeaderHeight="10" sectionFooterHeight="10" id="bNZ-Lz-R0k">
-                                <rect key="frame" x="156" y="44" width="612" height="896"/>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="39" sectionHeaderHeight="10" sectionFooterHeight="10" id="bNZ-Lz-R0k">
+                                <rect key="frame" x="254" y="15" width="501" height="836"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <label key="tableHeaderView" hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Главы:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xbe-UH-QGL">
+                                    <rect key="frame" x="0.0" y="0.0" width="501" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellPart" textLabel="FVS-Fl-4s2" rowHeight="94" style="IBUITableViewCellStyleDefault" id="Sbo-Ua-tLN">
-                                        <rect key="frame" x="0.0" y="54" width="612" height="96"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellPart" textLabel="FVS-Fl-4s2" rowHeight="39" style="IBUITableViewCellStyleDefault" id="Sbo-Ua-tLN">
+                                        <rect key="frame" x="0.0" y="75" width="501" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="37" y="1" width="518" height="93"/>
+                                            <rect key="frame" x="31" y="1" width="419" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Глава 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVS-Fl-4s2">
-                                                    <rect key="frame" x="10" y="0.0" width="498" height="93"/>
+                                                    <rect key="frame" x="10" y="0.0" width="399" height="38"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
@@ -542,35 +541,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Жанр:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IMM-TJ-Abb">
-                                <rect key="frame" x="12" y="72" width="50" height="21"/>
+                                <rect key="frame" x="151" y="15" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QDf-bh-UP3">
-                                <rect key="frame" x="12" y="104" width="124" height="21"/>
+                                <rect key="frame" x="151" y="37" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Обложка:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c6u-bB-wjb">
-                                <rect key="frame" x="12" y="146" width="79" height="21"/>
+                                <rect key="frame" x="12" y="91" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Главы:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xbe-UH-QGL">
-                                <rect key="frame" x="197" y="5" width="135" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ogr-7c-hJ1">
-                                <rect key="frame" x="6" y="187" width="148" height="137"/>
+                                <rect key="frame" x="6" y="120" width="229" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -582,9 +574,16 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="empyImage.png" id="dV4-sh-ztg">
-                                <rect key="frame" x="12" y="187" width="136" height="128"/>
+                                <rect key="frame" x="16" y="148" width="209" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RlB-uS-VkS">
+                                <rect key="frame" x="254" y="91" width="374" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                     </view>
@@ -664,6 +663,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPartViewController.h"/>
             <relationships>
                 <relationship kind="action" name="SavePart:"/>
+                <relationship kind="outlet" name="buttonFrame" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="partDescription" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="partTitleTextField" candidateClass="UITextField"/>
             </relationships>

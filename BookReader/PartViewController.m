@@ -8,6 +8,7 @@
 
 #import "PartViewController.h"
 #import "MasterViewController.h"
+#import "DetailViewController.h"
 
 @interface PartViewController ()
 
@@ -37,11 +38,13 @@
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-        //MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-        //[navigationControllerMaster setChange:NO];
-        //[navigationControllerMaster setSelectBook:nil];
-        //[navigationControllerMaster.tableView reloadData];
-        //[navigationControllerMaster.detailDelegate goToMain];
+         DetailViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+        [navigationControllerMaster1.partTable reloadData];
+        MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+        [navigationControllerMaster setChange:NO];
+        [navigationControllerMaster setSelectBook:nil];
+        [navigationControllerMaster.tableView reloadData];
+        [navigationControllerMaster.detailDelegate goToMain];
     }
 }
 

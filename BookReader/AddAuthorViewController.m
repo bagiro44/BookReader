@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper-003.jpg"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper-003.jpg"]];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 	// Do any additional setup after loading the view.
 }
@@ -40,15 +40,31 @@
 
 - (IBAction)saveAction:(id)sender
 {
+    UIAlertView *addAuthorAlertView1 = [[UIAlertView alloc]
+                                initWithTitle:@"Ошибка"
+                                message:@"Не введено имя автора..."
+                                delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+    UIAlertView *addAuthorAlertView2 = [[UIAlertView alloc]
+                                initWithTitle:@"Ошибка"
+                                message:@"Автор с таким именем уже существует в базе"
+                                delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+    
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    if(![data addAuthor:self.authorNameTextField.text])
+    if (![self.authorNameTextField.text length] == 0)
     {
-        NSLog(@"fghjdgfhjgsfhjgdshjf");
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+        if(![data addAuthor:self.authorNameTextField.text])
+        {
+            [addAuthorAlertView2 show];
+        }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+        
+            [self.navigationController popViewControllerAnimated:YES];}
 
-    [self.navigationController popViewControllerAnimated:YES];
+    }else
+    {
+        [addAuthorAlertView1 show];
+    }
 }
 
 

@@ -26,10 +26,13 @@
 @end
 
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
 {
+    UISearchBar *searchBar;
+    UISearchDisplayController *searchDisplayController;
     NSMutableArray *books;
 }
+
 - (IBAction)AddBook:(id)sender;
 - (void) changeSource:(NSNumber *)numberOfChange;
 - (IBAction)mainView:(id)sender;

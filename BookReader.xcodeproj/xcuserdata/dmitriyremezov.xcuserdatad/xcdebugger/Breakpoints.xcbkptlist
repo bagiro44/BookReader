@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "205"
-         endingLineNumber = "205"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
          landmarkName = "-AddBook:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "214"
-         endingLineNumber = "214"
+         startingLineNumber = "224"
+         endingLineNumber = "224"
          landmarkName = "-AddBook:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "223"
-         endingLineNumber = "223"
+         startingLineNumber = "233"
+         endingLineNumber = "233"
          landmarkName = "-checkRes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "219"
-         endingLineNumber = "219"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
          landmarkName = "-checkRes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
+         startingLineNumber = "227"
+         endingLineNumber = "227"
          landmarkName = "-checkRes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "216"
-         endingLineNumber = "216"
+         startingLineNumber = "226"
+         endingLineNumber = "226"
          landmarkName = "@implementation MasterViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "225"
-         endingLineNumber = "225"
+         startingLineNumber = "235"
+         endingLineNumber = "235"
          landmarkName = "-checkRes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -268,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
+         startingLineNumber = "185"
+         endingLineNumber = "185"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "145"
-         endingLineNumber = "145"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/AddPartViewController.m"
-         timestampString = "403647140.40344"
+         timestampString = "403648256.362001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "@implementation AddPartViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -333,11 +333,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "203"
-         endingLineNumber = "203"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,11 +359,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "403643638.982203"
+         timestampString = "403650836.853528"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-addBook:year:genre:name:image:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -385,11 +385,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-numberOfSectionsInTableView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -476,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649995.969463"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "277"
+         endingLineNumber = "277"
          landmarkName = "-defaultsChanged:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -515,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -541,11 +541,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -554,11 +554,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,7 +580,33 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "209"
+         endingLineNumber = "209"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/MasterViewController.m"
+         timestampString = "403649544.607542"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/MasterViewController.m"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "199"
@@ -593,11 +619,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "195"
-         endingLineNumber = "195"
+         startingLineNumber = "206"
+         endingLineNumber = "206"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -606,37 +632,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-numberOfSectionsInTableView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,11 +645,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-tableView:titleForHeaderInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -658,11 +658,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -671,11 +671,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
          landmarkName = "-numberOfSectionsInTableView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -684,11 +684,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -697,11 +697,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -710,11 +710,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/PartViewController.m"
-         timestampString = "403472363.071574"
+         timestampString = "403648600.179941"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -723,11 +723,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/PartViewController.m"
-         timestampString = "403472363.071574"
+         timestampString = "403648600.179941"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-viewWillDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -788,11 +788,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403650171.14613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "274"
-         endingLineNumber = "274"
+         startingLineNumber = "294"
+         endingLineNumber = "294"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -801,11 +801,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403650171.14613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "275"
-         endingLineNumber = "275"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -814,11 +814,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403649995.969463"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "270"
-         endingLineNumber = "270"
+         startingLineNumber = "290"
+         endingLineNumber = "290"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -827,11 +827,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -840,11 +840,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -853,11 +853,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,11 +866,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403626724.616404"
+         timestampString = "403649544.607542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -879,11 +879,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403650171.14613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "278"
-         endingLineNumber = "278"
+         startingLineNumber = "299"
+         endingLineNumber = "299"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -892,11 +892,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/MasterViewController.m"
-         timestampString = "403631303.389512"
+         timestampString = "403650171.14613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "280"
-         endingLineNumber = "280"
+         startingLineNumber = "302"
+         endingLineNumber = "302"
          landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -957,11 +957,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/AddPartViewController.m"
-         timestampString = "403623859.118732"
+         timestampString = "403648256.362001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
          landmarkName = "-SavePart:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1139,11 +1139,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "403643638.982203"
+         timestampString = "403650836.853528"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
          landmarkName = "-addBook:year:genre:name:image:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1191,11 +1191,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "403643631.67203"
+         timestampString = "403650836.853528"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "141"
-         endingLineNumber = "141"
+         startingLineNumber = "152"
+         endingLineNumber = "152"
          landmarkName = "@implementation DataSource"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1204,11 +1204,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "403643634.207785"
+         timestampString = "403650836.853528"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
          landmarkName = "-addBook:year:genre:name:image:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1217,12 +1217,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/AddPartViewController.m"
-         timestampString = "403647140.40344"
+         timestampString = "403648256.362001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-textViewDidBeginEditing:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/MasterViewController.m"
+         timestampString = "403649405.311283"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/MasterViewController.m"
+         timestampString = "403649544.607542"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/MasterViewController.m"
+         timestampString = "403649544.607542"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/DataSource.m"
+         timestampString = "403651026.595637"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
+         landmarkName = "-addAuthor:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

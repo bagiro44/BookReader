@@ -68,6 +68,8 @@
             [navigationControllerMaster.tableView reloadData];
         }else
         {
+            MasterViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+            [navigationControllerMaster1.tableView reloadData];
             DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
             [navigationControllerMaster.partTable setHidden:NO];
             [navigationControllerMaster.partTable reloadData];

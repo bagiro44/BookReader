@@ -50,6 +50,16 @@
                                                object:nil];
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
     self.authorS = [data selectAuthor];
+    //NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    //for (Author *author in self.authorS)
+    //{
+     //   if ([[author book] count])
+     //   {
+     //       [tempArray addObject:author];
+     //       NSLog(@"%lu", [[author book] count]);
+     //   }
+    //}
+    //self.authorS = tempArray;
     self.books = [data selectBook];
 
     
@@ -227,6 +237,16 @@
     if ([[notification name] isEqualToString:@"reloadTable"])
     {
         self.authorS = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectAuthor];
+        /*NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (Author *author in self.authorS)
+        {
+            if ([[author book] count])
+            {
+                [tempArray addObject:author];
+                NSLog(@"%lu", [[author book] count]);
+            }
+        }
+        self.authorS = tempArray;*/
         self.books = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectBook];
         [self.tableView reloadData];
     }
@@ -272,11 +292,13 @@
             if(change)
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deletePart:[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
             }else
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteAuthor:[self.authorS objectAtIndex:indexPath.row]];
                 self.authorS = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectAuthor];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
             }
         }
@@ -284,12 +306,15 @@
             if(change)
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deletePart:[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row]];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
             }
             else
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteBook:[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row]];
+                //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                
             }}
         
     }
