@@ -49,6 +49,7 @@
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
     self.authorS = [data selectAuthor];
     self.books = [data selectBook];
+
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *mode = [defaults objectForKey:@"showController"];
@@ -183,7 +184,7 @@
             [self.detailDelegate showPart: [[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
         }else{
         Author *selectedBook = [self.authorS objectAtIndex:indexPath.row];
-            [self.detailDelegate didSelectAuthor:selectedBook];}
+        [self.detailDelegate didSelectAuthor:selectedBook];}
     }
     else{
     if(change)
@@ -253,48 +254,57 @@
     NSLog(@"%@", self.splitViewController.viewControllers);
 }
 
-- (IBAction)testAction:(AlbumAuthorViewController *)sender
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[detailDelegate showBookAlbum:[self.authorS objectAtIndex:0]];
+    return YES;
 }
-@end
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if (albumMode)
+        {
+            if(change)
+            {
+                [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deletePart:[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }else
+            {
+                [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteAuthor:[self.authorS objectAtIndex:indexPath.row]];
+                self.authorS = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectAuthor];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }
+        }
+        else{
+            if(change)
+            {
+                [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deletePart:[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row]];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }
+            else
+            {
+                [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteBook:[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row]];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }}
+        
+    }
+}
 
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
  {
  }
- */
 
-/*
- // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the item to be re-orderable.
  return YES;
  }
- */
+ 
+
+
+@end
+
+ 

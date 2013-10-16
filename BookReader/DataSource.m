@@ -21,7 +21,9 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     
-    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *result= nil;
+    result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    return result;
 }
 
 - (NSMutableArray *) selectYear
@@ -31,7 +33,9 @@
     [fetchRequest setEntity:entity];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *result= nil;
+    result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    return result;
 }
 
 - (NSMutableArray *) selectBook
@@ -42,7 +46,9 @@
     [fetchRequest setEntity:entity];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *result= nil;
+    result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    return result;
 }
 
 - (BOOL) addAuthor:(NSString *)author
@@ -125,12 +131,33 @@
     return YES;
 }
 
+
+- (BOOL) deleteBook:(BookS *)book
+{
+    [self.managedObjectContext deleteObject:book];
+    [self saveContext];
+    return  YES;
+}
+- (BOOL) deleteAuthor:(Author *)author
+{
+    [self.managedObjectContext deleteObject:author];
+    [self saveContext];
+    return YES;
+}
+- (BOOL) deletePart:(Part *)part
+{
+    [self.managedObjectContext deleteObject:part];
+    [self saveContext];
+    return YES;
+}
+
+
 - (void)saveContext
 {
     if(nil != self.managedObjectContext){
         if([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:nil])
         {
-            NSLog(@"Unresolved error");
+            NSLog(@"saveContext in datasource error");
             abort();
         }
     }

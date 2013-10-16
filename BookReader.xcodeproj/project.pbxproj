@@ -40,10 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7702DAB81800653800644A99 /* AddGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGenreViewController.h; sourceTree = "<group>"; };
-		7702DAB91800653800644A99 /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGenreViewController.m; sourceTree = "<group>"; };
-		7702DAC718040E5900644A99 /* AddPartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPartViewController.h; sourceTree = "<group>"; };
-		7702DAC818040E5900644A99 /* AddPartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPartViewController.m; sourceTree = "<group>"; };
+		7702DAB81800653800644A99 /* AddGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGenreViewController.h; path = BookReader/AddGenreViewController.h; sourceTree = "<group>"; };
+		7702DAB91800653800644A99 /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGenreViewController.m; path = BookReader/AddGenreViewController.m; sourceTree = "<group>"; };
+		7702DAC718040E5900644A99 /* AddPartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPartViewController.h; path = BookReader/AddPartViewController.h; sourceTree = "<group>"; };
+		7702DAC818040E5900644A99 /* AddPartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPartViewController.m; path = BookReader/AddPartViewController.m; sourceTree = "<group>"; };
 		7702DACA18042A1600644A99 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookS.h; path = BookReader/BookS.h; sourceTree = "<group>"; };
 		7702DACB18042A1600644A99 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookS.m; path = BookReader/BookS.m; sourceTree = "<group>"; };
 		7702DACE18042A6900644A99 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
@@ -64,16 +64,16 @@
 		771E950517F453C3004C46D4 /* Books.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Books.xcdatamodel; sourceTree = "<group>"; };
 		771E954417F473E1004C46D4 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		771E954517F473E1004C46D4 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
-		7785587017EB299D0011BE62 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
-		7785587117EB299D0011BE62 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
+		7785587017EB299D0011BE62 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBookViewController.h; path = BookReader/AddBookViewController.h; sourceTree = "<group>"; };
+		7785587117EB299D0011BE62 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBookViewController.m; path = BookReader/AddBookViewController.m; sourceTree = "<group>"; };
 		7790E32A17FC3BCF0000C187 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = BookReader/DataSource.h; sourceTree = "<group>"; };
 		7790E32B17FC3BCF0000C187 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSource.m; path = BookReader/DataSource.m; sourceTree = "<group>"; };
 		7794364118088026006AF862 /* BookCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionCell.h; sourceTree = "<group>"; };
 		7794364218088026006AF862 /* BookCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionCell.m; sourceTree = "<group>"; };
 		779436471808810B006AF862 /* BookCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionViewController.h; sourceTree = "<group>"; };
 		779436481808810B006AF862 /* BookCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionViewController.m; sourceTree = "<group>"; };
-		7794364D180B585B006AF862 /* AddAuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAuthorViewController.h; sourceTree = "<group>"; };
-		7794364E180B585B006AF862 /* AddAuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAuthorViewController.m; sourceTree = "<group>"; };
+		7794364D180B585B006AF862 /* AddAuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAuthorViewController.h; path = BookReader/AddAuthorViewController.h; sourceTree = "<group>"; };
+		7794364E180B585B006AF862 /* AddAuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAuthorViewController.m; path = BookReader/AddAuthorViewController.m; sourceTree = "<group>"; };
 		77943650180C6C1C006AF862 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		77982EE817E7628F000631B4 /* BookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77982EEB17E7628F000631B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -122,6 +122,7 @@
 				7702DACB18042A1600644A99 /* BookS.m */,
 			);
 			name = CoreData;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		771E94CE17F1C881004C46D4 /* Resources */ = {
@@ -134,10 +135,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		77943652180E8CA3006AF862 /* AddElement */ = {
+			isa = PBXGroup;
+			children = (
+				7794364D180B585B006AF862 /* AddAuthorViewController.h */,
+				7794364E180B585B006AF862 /* AddAuthorViewController.m */,
+				7702DAC718040E5900644A99 /* AddPartViewController.h */,
+				7702DAC818040E5900644A99 /* AddPartViewController.m */,
+				7702DAB81800653800644A99 /* AddGenreViewController.h */,
+				7702DAB91800653800644A99 /* AddGenreViewController.m */,
+				7785587017EB299D0011BE62 /* AddBookViewController.h */,
+				7785587117EB299D0011BE62 /* AddBookViewController.m */,
+			);
+			name = AddElement;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		77982EDF17E7628F000631B4 = {
 			isa = PBXGroup;
 			children = (
-				7702DACD18042A2500644A99 /* CoreData */,
 				77982EF117E76290000631B4 /* BookReader */,
 				77982EEA17E7628F000631B4 /* Frameworks */,
 				77982EE917E7628F000631B4 /* Products */,
@@ -169,26 +185,20 @@
 				77982EFA17E76290000631B4 /* AppDelegate.h */,
 				77982EFB17E76290000631B4 /* AppDelegate.m */,
 				77982F0317E76290000631B4 /* MainStoryboard.storyboard */,
-				7794364D180B585B006AF862 /* AddAuthorViewController.h */,
-				7794364E180B585B006AF862 /* AddAuthorViewController.m */,
 				779436471808810B006AF862 /* BookCollectionViewController.h */,
 				779436481808810B006AF862 /* BookCollectionViewController.m */,
 				7794364118088026006AF862 /* BookCollectionCell.h */,
 				7794364218088026006AF862 /* BookCollectionCell.m */,
 				7702DAE01804421E00644A99 /* PartViewController.h */,
 				7702DAE11804421E00644A99 /* PartViewController.m */,
-				7702DAC718040E5900644A99 /* AddPartViewController.h */,
-				7702DAC818040E5900644A99 /* AddPartViewController.m */,
-				7702DAB81800653800644A99 /* AddGenreViewController.h */,
-				7702DAB91800653800644A99 /* AddGenreViewController.m */,
-				7785587017EB299D0011BE62 /* AddBookViewController.h */,
-				7785587117EB299D0011BE62 /* AddBookViewController.m */,
 				7714FB2317EB2FD2008FB091 /* MasterViewController.h */,
 				770B20C217E766D000AF23FB /* MasterViewController.m */,
 				770B20C417E7674400AF23FB /* DetailViewController.h */,
 				770B20C517E7674400AF23FB /* DetailViewController.m */,
 				771E954417F473E1004C46D4 /* PopoverViewController.h */,
 				771E954517F473E1004C46D4 /* PopoverViewController.m */,
+				77943652180E8CA3006AF862 /* AddElement */,
+				7702DACD18042A2500644A99 /* CoreData */,
 				771E94CE17F1C881004C46D4 /* Resources */,
 				77982EF217E76290000631B4 /* Supporting Files */,
 			);

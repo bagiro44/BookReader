@@ -38,7 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBookButton;
 @property (nonatomic, unsafe_unretained) id<Booking> detailDelegate;
-@property (nonatomic, strong) NSArray *authorS;
+@property (nonatomic, strong) NSMutableArray *authorS;
 @property (nonatomic, weak) NSMutableArray *books;
 @property AddAuthorViewController *authorPopover;
 @property (nonatomic, strong) UIPopoverController *authorPopoverController;

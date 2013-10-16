@@ -47,6 +47,7 @@
 {
     [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
     DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+    [navigationControllerMaster.partTable setHidden:NO];
     [navigationControllerMaster.partTable reloadData];
     [self.navigationController popViewControllerAnimated:YES];
     

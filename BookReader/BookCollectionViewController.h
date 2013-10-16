@@ -18,7 +18,10 @@
 }
 
 @property Author *author;
+- (IBAction)deleteBook:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *BookCollection;
+@property NSIndexPath *deletedIndexpath;
 - (IBAction)addBook:(id)sender;
 
 @end

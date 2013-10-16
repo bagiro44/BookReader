@@ -31,4 +31,7 @@
 - (BOOL) addBPart:(NSString *)book number:(NSString *)number title:(NSString *)title desc:(NSString *)description;
 - (BOOL) addGenre:(NSString *)genre;
 
+- (BOOL) deleteBook:(BookS *)book;
+- (BOOL) deleteAuthor:(Author *)author;
+- (BOOL) deletePart:(Part *)part;
 @end

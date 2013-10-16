@@ -41,6 +41,7 @@
         [navigationControllerMaster setChange:NO];
         [navigationControllerMaster setSelectBook:nil];
         [navigationControllerMaster.tableView reloadData];
+        [navigationControllerMaster.detailDelegate goToMain];
     }
 }
 
