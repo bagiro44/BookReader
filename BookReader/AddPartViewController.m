@@ -46,17 +46,84 @@
 
 - (IBAction)SavePart:(id)sender
 {
-    [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
-    if(self.itIscollectionView)
+    BOOL success = YES;
+    for (Part *item in [self.bookTO part])
     {
-        MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-        [navigationControllerMaster.tableView reloadData];
-    }else
+        if ([item.title isEqualToString:self.partTitleTextField.text])
+        {
+            UIAlertView *deleteAlert = [[UIAlertView alloc]
+                                        initWithTitle:@"Ошибка"
+                                        message:@"Глава с таким названием уже существует в книге"
+                                        delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+            [deleteAlert show];
+            success = NO;
+            break;
+        }
+    }if (success)
     {
-        DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
-        [navigationControllerMaster.partTable setHidden:NO];
-        [navigationControllerMaster.partTable reloadData];
+        [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
+        if(self.itIscollectionView)
+        {
+            MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+            [navigationControllerMaster.tableView reloadData];
+        }else
+        {
+            DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+            [navigationControllerMaster.partTable setHidden:NO];
+            [navigationControllerMaster.partTable reloadData];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (void) textViewDidBeginEditing:(UITextView *)textView {
+    CGRect viewFrame = self.partDescription.frame;
+    CGRect viewFrameButton = self.buttonFrame.frame;
+    viewFrame.size.height += -352;  /*specify the points to move the view up*/
+    viewFrameButton.size.height += -352;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:-10];
+    
+    [self.partDescription setFrame:viewFrame];
+    [self.buttonFrame setFrame:viewFrameButton];
+    
+    [UIView commitAnimations];
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
+    CGRect viewFrame = self.partDescription.frame;
+    CGRect viewFrameButton = self.buttonFrame.frame;
+    viewFrame.size.height += 352; 
+    viewFrameButton.size.height += 352;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:-10];
+    
+    [self.partDescription setFrame:viewFrame];
+    [self.buttonFrame setFrame:viewFrameButton];
+    
+    [UIView commitAnimations];
+    [textView resignFirstResponder];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.partDescription isFirstResponder] && [touch view] != self.partDescription)
+    {[self.partDescription resignFirstResponder];}
+    else if ([self.partTitleTextField isFirstResponder] && [touch view] != self.partTitleTextField)
+    {[self.partTitleTextField resignFirstResponder];}
+    [super touchesBegan:touches withEvent:event];
 }
 @end

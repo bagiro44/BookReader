@@ -51,14 +51,36 @@
     return result;
 }
 
+- (BOOL) seacrhByPartTitle:(NSString *)part inBook:(BookS *)book
+{
+    /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", author];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setEntity:authorEntity];
+    Author *array = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    [book addAuthoObject:array];*/
+    return  YES;
+}
+- (BOOL) seacrhByBookName:(NSString *)name
+{
+    return  YES;
+}
+- (BOOL) seacrhByAuthorName:(NSString *)name
+{
+    return  YES;
+}
+
 - (BOOL) addAuthor:(NSString *)author
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
     Author *authorToDB = [[Author alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
     authorToDB.name = author;
     
-    [self saveContext];    
-    return YES;
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL) addGenre:(NSString *)genre;
@@ -67,26 +89,40 @@
     NSManagedObjectModel *iii = [NSEntityDescription insertNewObjectForEntityForName:[entity name]  inManagedObjectContext:self.managedObjectContext];
     
     [iii setValue:genre forKey:@"name"];
-    [self saveContext];
-    
-    return YES;
+    if ([self saveContext])
+    {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;
 {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name like[cd] %@)", name];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setEntity:authorEntity];
+    NSArray *tempArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    if(tempArray != nil)
+    {
+        for (BookS *book in tempArray)
+        {
+            if ([[[[book.autho allObjects] lastObject] name] isEqualToString:author])
+            {
+                return NO;
+            }
+        }
+    }
+
     //описание новой книги для добавления в БД
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
     BookS *book = [[BookS alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];    
-    book.year = [NSNumber numberWithInteger:year];
+    book.year = [NSNumber numberWithInteger:[year integerValue]];
     book.name = name;
     book.image = image;
+    book.genre = genre;
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"Genre" inManagedObjectContext:self.managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", genre];
-    [fetchRequest setPredicate:predicate];
-    [fetchRequest setEntity:authorEntity];
-    //Genre *genree = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     //получение автора для добавления связи с книгой
     fetchRequest = [[NSFetchRequest alloc] init];
     authorEntity = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
@@ -94,20 +130,13 @@
     [fetchRequest setPredicate:predicate];
     [fetchRequest setEntity:authorEntity];
     Author *array = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
-    if (array == nil)
-    {
-        [self addAuthor:author];
-        array = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
-    }    
-
     [book addAuthoObject:array];
-    //[book addGenrObject:genree];
     
-    
-    
-    [self saveContext];
-    
-    return YES;
+        
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL) addBPart:(NSString *)book number:(NSString *)number title:(NSString *)title desc:(NSString *)description
@@ -127,41 +156,51 @@
     BookS *array = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     [array addPartObject:partToDB];
     
-    [self saveContext];
-    
-    return YES;
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
 }
 
 
 - (BOOL) deleteBook:(BookS *)book
 {
     [self.managedObjectContext deleteObject:book];
-    [self saveContext];
-    return  YES;
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
 }
 - (BOOL) deleteAuthor:(Author *)author
 {
     [self.managedObjectContext deleteObject:author];
-    [self saveContext];
-    return YES;
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
+
 }
 - (BOOL) deletePart:(Part *)part
 {
     [self.managedObjectContext deleteObject:part];
-    [self saveContext];
-    return YES;
+    if ([self saveContext]) {
+        return YES;
+    }
+    return NO;
 }
 
 
-- (void)saveContext
+- (BOOL) saveContext
 {
     if(nil != self.managedObjectContext){
         if([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:nil])
         {
             NSLog(@"saveContext in datasource error");
+            return NO;
             abort();
         }
     }
+    return YES;
 }
 
 

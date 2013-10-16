@@ -32,6 +32,8 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
+    //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper50.jpeg"]];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"blockButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"blockButton"
                                                object:nil];
@@ -168,6 +170,7 @@
     else
     {
         cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]];
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
     }}
     
     return cell;

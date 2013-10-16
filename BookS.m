@@ -8,7 +8,6 @@
 
 #import "BookS.h"
 #import "Author.h"
-#import "Genre.h"
 #import "Part.h"
 
 
@@ -17,8 +16,8 @@
 @dynamic image;
 @dynamic name;
 @dynamic year;
+@dynamic genre;
 @dynamic autho;
-@dynamic genr;
 @dynamic part;
 
 @end

@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "Author.h"
 #import "BookS.h"
-#import "Genre.h"
 #import "Part.h"
 
 @interface DataSource : NSObject
@@ -25,6 +24,10 @@
 - (NSMutableArray *) selectGenre;
 - (NSMutableArray *) selectBook;
 - (NSMutableArray *) selectPart;
+
+- (BOOL) seacrhByPartTitle:(NSString *)part inBook:(BookS *)book;
+- (BOOL) seacrhByBookName:(NSString *)name;
+- (BOOL) seacrhByAuthorName:(NSString *)name;
 
 - (BOOL) addAuthor:(NSString *)author;
 - (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;

@@ -21,7 +21,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addPartButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *imageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabelItem;
+@property (weak, nonatomic) IBOutlet UILabel *genreLabelItem;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *partLabel;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
+
 @property BookS *books;
 @property Part *partOfBook;
 @property NSString *bookTitle;

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7702DABA1800653800644A99 /* AddGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAB91800653800644A99 /* AddGenreViewController.m */; };
 		7702DAC918040E5900644A99 /* AddPartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAC818040E5900644A99 /* AddPartViewController.m */; };
 		7702DAE21804421E00644A99 /* PartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAE11804421E00644A99 /* PartViewController.m */; };
 		7702DAE718068C9100644A99 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7702DAE618068C9100644A99 /* Settings.bundle */; };
@@ -24,10 +23,10 @@
 		7794364F180B585B006AF862 /* AddAuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794364E180B585B006AF862 /* AddAuthorViewController.m */; };
 		77943651180C6C1C006AF862 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 77943650180C6C1C006AF862 /* home.png */; };
 		77943654180E9D5F006AF862 /* empyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 77943653180E9D5F006AF862 /* empyImage.png */; };
-		77943657180EA627006AF862 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943656180EA627006AF862 /* Author.m */; };
-		7794365A180EA634006AF862 /* BookS.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943659180EA634006AF862 /* BookS.m */; };
-		7794365D180EA63D006AF862 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794365C180EA63D006AF862 /* Genre.m */; };
-		77943660180EA645006AF862 /* Part.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794365F180EA645006AF862 /* Part.m */; };
+		77943663180EAD86006AF862 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943662180EAD86006AF862 /* Author.m */; };
+		77943666180EAD92006AF862 /* BookS.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943665180EAD92006AF862 /* BookS.m */; };
+		77943669180EAD99006AF862 /* Part.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943668180EAD99006AF862 /* Part.m */; };
+		7794366B180ED31B006AF862 /* white-background--multicolored--book--books_3335452.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7794366A180ED31B006AF862 /* white-background--multicolored--book--books_3335452.jpg */; };
 		77982EEC17E7628F000631B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEB17E7628F000631B4 /* UIKit.framework */; };
 		77982EEE17E7628F000631B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EED17E7628F000631B4 /* Foundation.framework */; };
 		77982EF017E76290000631B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEF17E7628F000631B4 /* CoreGraphics.framework */; };
@@ -38,11 +37,13 @@
 		77982F0017E76290000631B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77982EFF17E76290000631B4 /* Default@2x.png */; };
 		77982F0217E76290000631B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77982F0117E76290000631B4 /* Default-568h@2x.png */; };
 		77982F0517E76290000631B4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77982F0317E76290000631B4 /* MainStoryboard.storyboard */; };
+		77CE10A1180EDCBF00580971 /* paper-003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77CE10A0180EDCBF00580971 /* paper-003.jpg */; };
+		77CE10A4180EE38300580971 /* ipad23.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77CE10A2180EE38300580971 /* ipad23.jpg */; };
+		77CE10A5180EE38300580971 /* paper-003.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77CE10A3180EE38300580971 /* paper-003.jpg */; };
+		77CE10A7180EEABD00580971 /* paper50.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 77CE10A6180EEABD00580971 /* paper50.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7702DAB81800653800644A99 /* AddGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGenreViewController.h; path = BookReader/AddGenreViewController.h; sourceTree = "<group>"; };
-		7702DAB91800653800644A99 /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGenreViewController.m; path = BookReader/AddGenreViewController.m; sourceTree = "<group>"; };
 		7702DAC718040E5900644A99 /* AddPartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPartViewController.h; path = BookReader/AddPartViewController.h; sourceTree = "<group>"; };
 		7702DAC818040E5900644A99 /* AddPartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPartViewController.m; path = BookReader/AddPartViewController.m; sourceTree = "<group>"; };
 		7702DAE01804421E00644A99 /* PartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartViewController.h; sourceTree = "<group>"; };
@@ -69,14 +70,13 @@
 		7794364E180B585B006AF862 /* AddAuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAuthorViewController.m; path = BookReader/AddAuthorViewController.m; sourceTree = "<group>"; };
 		77943650180C6C1C006AF862 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		77943653180E9D5F006AF862 /* empyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empyImage.png; sourceTree = "<group>"; };
-		77943655180EA627006AF862 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
-		77943656180EA627006AF862 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		77943658180EA634006AF862 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookS.h; sourceTree = "<group>"; };
-		77943659180EA634006AF862 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookS.m; sourceTree = "<group>"; };
-		7794365B180EA63D006AF862 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
-		7794365C180EA63D006AF862 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
-		7794365E180EA645006AF862 /* Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Part.h; sourceTree = "<group>"; };
-		7794365F180EA645006AF862 /* Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Part.m; sourceTree = "<group>"; };
+		77943661180EAD86006AF862 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		77943662180EAD86006AF862 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		77943664180EAD92006AF862 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookS.h; sourceTree = "<group>"; };
+		77943665180EAD92006AF862 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookS.m; sourceTree = "<group>"; };
+		77943667180EAD99006AF862 /* Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Part.h; sourceTree = "<group>"; };
+		77943668180EAD99006AF862 /* Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Part.m; sourceTree = "<group>"; };
+		7794366A180ED31B006AF862 /* white-background--multicolored--book--books_3335452.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "white-background--multicolored--book--books_3335452.jpg"; sourceTree = "<group>"; };
 		77982EE817E7628F000631B4 /* BookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77982EEB17E7628F000631B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77982EED17E7628F000631B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +91,10 @@
 		77982EFF17E76290000631B4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		77982F0117E76290000631B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		77982F0417E76290000631B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		77CE10A0180EDCBF00580971 /* paper-003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "paper-003.jpg"; path = "../../../../Downloads/paper-003.jpg"; sourceTree = "<group>"; };
+		77CE10A2180EE38300580971 /* ipad23.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ipad23.jpg; sourceTree = "<group>"; };
+		77CE10A3180EE38300580971 /* paper-003.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "paper-003.jpg"; sourceTree = "<group>"; };
+		77CE10A6180EEABD00580971 /* paper50.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paper50.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,14 +118,12 @@
 				7790E32A17FC3BCF0000C187 /* DataSource.h */,
 				7790E32B17FC3BCF0000C187 /* DataSource.m */,
 				771E950417F453C3004C46D4 /* Books.xcdatamodeld */,
-				7794365E180EA645006AF862 /* Part.h */,
-				7794365F180EA645006AF862 /* Part.m */,
-				7794365B180EA63D006AF862 /* Genre.h */,
-				7794365C180EA63D006AF862 /* Genre.m */,
-				77943655180EA627006AF862 /* Author.h */,
-				77943656180EA627006AF862 /* Author.m */,
-				77943658180EA634006AF862 /* BookS.h */,
-				77943659180EA634006AF862 /* BookS.m */,
+				77943664180EAD92006AF862 /* BookS.h */,
+				77943665180EAD92006AF862 /* BookS.m */,
+				77943667180EAD99006AF862 /* Part.h */,
+				77943668180EAD99006AF862 /* Part.m */,
+				77943661180EAD86006AF862 /* Author.h */,
+				77943662180EAD86006AF862 /* Author.m */,
 			);
 			name = CoreData;
 			path = ..;
@@ -130,6 +132,11 @@
 		771E94CE17F1C881004C46D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77CE10A6180EEABD00580971 /* paper50.jpeg */,
+				77CE10A2180EE38300580971 /* ipad23.jpg */,
+				77CE10A3180EE38300580971 /* paper-003.jpg */,
+				77CE10A0180EDCBF00580971 /* paper-003.jpg */,
+				7794366A180ED31B006AF862 /* white-background--multicolored--book--books_3335452.jpg */,
 				77943653180E9D5F006AF862 /* empyImage.png */,
 				77943650180C6C1C006AF862 /* home.png */,
 				7702DAE618068C9100644A99 /* Settings.bundle */,
@@ -145,8 +152,6 @@
 				7794364E180B585B006AF862 /* AddAuthorViewController.m */,
 				7702DAC718040E5900644A99 /* AddPartViewController.h */,
 				7702DAC818040E5900644A99 /* AddPartViewController.m */,
-				7702DAB81800653800644A99 /* AddGenreViewController.h */,
-				7702DAB91800653800644A99 /* AddGenreViewController.m */,
 				7785587017EB299D0011BE62 /* AddBookViewController.h */,
 				7785587117EB299D0011BE62 /* AddBookViewController.m */,
 			);
@@ -185,21 +190,7 @@
 		77982EF117E76290000631B4 /* BookReader */ = {
 			isa = PBXGroup;
 			children = (
-				77982EFA17E76290000631B4 /* AppDelegate.h */,
-				77982EFB17E76290000631B4 /* AppDelegate.m */,
-				77982F0317E76290000631B4 /* MainStoryboard.storyboard */,
-				779436471808810B006AF862 /* BookCollectionViewController.h */,
-				779436481808810B006AF862 /* BookCollectionViewController.m */,
-				7794364118088026006AF862 /* BookCollectionCell.h */,
-				7794364218088026006AF862 /* BookCollectionCell.m */,
-				7702DAE01804421E00644A99 /* PartViewController.h */,
-				7702DAE11804421E00644A99 /* PartViewController.m */,
-				7714FB2317EB2FD2008FB091 /* MasterViewController.h */,
-				770B20C217E766D000AF23FB /* MasterViewController.m */,
-				770B20C417E7674400AF23FB /* DetailViewController.h */,
-				770B20C517E7674400AF23FB /* DetailViewController.m */,
-				771E954417F473E1004C46D4 /* PopoverViewController.h */,
-				771E954517F473E1004C46D4 /* PopoverViewController.m */,
+				77CE10A8180F168C00580971 /* MainClass */,
 				77943652180E8CA3006AF862 /* AddElement */,
 				7702DACD18042A2500644A99 /* CoreData */,
 				771E94CE17F1C881004C46D4 /* Resources */,
@@ -220,6 +211,28 @@
 				77982F0117E76290000631B4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		77CE10A8180F168C00580971 /* MainClass */ = {
+			isa = PBXGroup;
+			children = (
+				77982EFA17E76290000631B4 /* AppDelegate.h */,
+				77982EFB17E76290000631B4 /* AppDelegate.m */,
+				77982F0317E76290000631B4 /* MainStoryboard.storyboard */,
+				779436471808810B006AF862 /* BookCollectionViewController.h */,
+				779436481808810B006AF862 /* BookCollectionViewController.m */,
+				7794364118088026006AF862 /* BookCollectionCell.h */,
+				7794364218088026006AF862 /* BookCollectionCell.m */,
+				7702DAE01804421E00644A99 /* PartViewController.h */,
+				7702DAE11804421E00644A99 /* PartViewController.m */,
+				7714FB2317EB2FD2008FB091 /* MasterViewController.h */,
+				770B20C217E766D000AF23FB /* MasterViewController.m */,
+				770B20C417E7674400AF23FB /* DetailViewController.h */,
+				770B20C517E7674400AF23FB /* DetailViewController.m */,
+				771E954417F473E1004C46D4 /* PopoverViewController.h */,
+				771E954517F473E1004C46D4 /* PopoverViewController.m */,
+			);
+			name = MainClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +295,11 @@
 				7702DAE718068C9100644A99 /* Settings.bundle in Resources */,
 				77943651180C6C1C006AF862 /* home.png in Resources */,
 				77943654180E9D5F006AF862 /* empyImage.png in Resources */,
+				7794366B180ED31B006AF862 /* white-background--multicolored--book--books_3335452.jpg in Resources */,
+				77CE10A1180EDCBF00580971 /* paper-003.jpg in Resources */,
+				77CE10A4180EE38300580971 /* ipad23.jpg in Resources */,
+				77CE10A5180EE38300580971 /* paper-003.jpg in Resources */,
+				77CE10A7180EEABD00580971 /* paper50.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,16 +318,14 @@
 				771E950617F453C3004C46D4 /* Books.xcdatamodeld in Sources */,
 				771E954617F473E1004C46D4 /* PopoverViewController.m in Sources */,
 				7790E32C17FC3BCF0000C187 /* DataSource.m in Sources */,
-				7702DABA1800653800644A99 /* AddGenreViewController.m in Sources */,
 				7702DAC918040E5900644A99 /* AddPartViewController.m in Sources */,
 				7702DAE21804421E00644A99 /* PartViewController.m in Sources */,
 				7794364318088026006AF862 /* BookCollectionCell.m in Sources */,
 				779436491808810B006AF862 /* BookCollectionViewController.m in Sources */,
 				7794364F180B585B006AF862 /* AddAuthorViewController.m in Sources */,
-				77943657180EA627006AF862 /* Author.m in Sources */,
-				7794365A180EA634006AF862 /* BookS.m in Sources */,
-				7794365D180EA63D006AF862 /* Genre.m in Sources */,
-				77943660180EA645006AF862 /* Part.m in Sources */,
+				77943663180EAD86006AF862 /* Author.m in Sources */,
+				77943666180EAD92006AF862 /* BookS.m in Sources */,
+				77943669180EAD99006AF862 /* Part.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

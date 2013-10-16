@@ -37,11 +37,11 @@
     if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-        MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-        [navigationControllerMaster setChange:NO];
-        [navigationControllerMaster setSelectBook:nil];
-        [navigationControllerMaster.tableView reloadData];
-        [navigationControllerMaster.detailDelegate goToMain];
+        //MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+        //[navigationControllerMaster setChange:NO];
+        //[navigationControllerMaster setSelectBook:nil];
+        //[navigationControllerMaster.tableView reloadData];
+        //[navigationControllerMaster.detailDelegate goToMain];
     }
 }
 

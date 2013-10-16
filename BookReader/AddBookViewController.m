@@ -26,6 +26,21 @@
     return self;
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.name isFirstResponder] && [touch view] != self.name)
+    {[self.name resignFirstResponder];}
+    else if ([self.yearTextField isFirstResponder] && [touch view] != self.yearTextField)
+    {[self.yearTextField resignFirstResponder];}
+    [super touchesBegan:touches withEvent:event];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,13 +65,37 @@
 
 - (IBAction)saveBook
 {
-    DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    //[data addBPart:self.yearTextField.text number:self.name.text title:nil desc:nil];
-    [data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text image:self.imageData];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
     
-    [self dismissModalViewControllerAnimated:YES];
+    UIAlertView *alertView2 = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Неверный формат ввода года (Пример верного ввода: 1985)" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    if (([self.yearTextField.text intValue] && self.yearTextField.text.length == 4) || self.yearTextField.text.length == 0)
+    {
+        if (![self.addAuthorButton.titleLabel.text isEqualToString:@"Выберите автора..."])
+        {
+            DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
+            if (![data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text image:self.imageData])
+            {
+                UIAlertView *deleteAlert = [[UIAlertView alloc]
+                                            initWithTitle:@"Ошибка"
+                                            message:@"Книга с таким названием уже существует у автора"
+                                            delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+                [deleteAlert show];
+            }
+            else
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
+                [self dismissModalViewControllerAnimated:YES];
+            }
+        }else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Не указан автор книги..." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }
+    else
+    {
+        [alertView2 show];
+    }    
 }
 
 

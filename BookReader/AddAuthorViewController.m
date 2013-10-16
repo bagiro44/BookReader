@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper-003.jpg"]];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 	// Do any additional setup after loading the view.
 }
@@ -40,7 +41,10 @@
 - (IBAction)saveAction:(id)sender
 {
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    [data addAuthor:self.authorNameTextField.text];
+    if(![data addAuthor:self.authorNameTextField.text])
+    {
+        NSLog(@"fghjdgfhjgsfhjgdshjf");
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
 

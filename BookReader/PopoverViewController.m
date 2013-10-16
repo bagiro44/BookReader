@@ -37,7 +37,7 @@
         self.authorArray = [_data selectAuthor];
         break;
     case 1:
-        self.authorArray = [[NSArray alloc] initWithObjects:@"18+", @"Аниме", @"Биография", @"Боевик", @"Вестерн", @"Военный", @"Детектив", @"Детский", @"Документальный", @"Драма", @"Игра", @"История", @"Комедия", @"Концерт", @"Короткометражка", @"Криминал", @"Мелодрама", @"Музыка", @"Мультфильм", @"Мюзикл", @"Новости", @"Приключения", @"Семейный", @"Сериал", @"Спорт", @"Ток-шоу", @"Триллер", @"Ужасы", @"Фантастика", @"Фентези", @"ТВ", nil];
+        self.authorArray = [[NSArray alloc] initWithObjects:@"18+", @"Аниме", @"Биография", @"Вестерн", @"Военный", @"Детектив", @"Детский", @"Документальный", @"Драма", @"Игра", @"История", @"Комедия", @"Криминал", @"Мелодрама", @"Приключения", @"Семейный", @"Триллер", @"Ужасы", @"Фантастика", @"Фентези", nil];
         break;
     default:
         break;
@@ -49,7 +49,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

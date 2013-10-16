@@ -29,13 +29,11 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIButton *addAuthorButton;
+
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
+
 @property (weak, nonatomic) IBOutlet UIButton *genreButton;
-
-@property (weak, nonatomic) IBOutlet UITextField *addtitle;
-@property (weak, nonatomic) IBOutlet UITextField *adddesc;
-
 @property (weak, nonatomic) IBOutlet UIButton *addImageButton;
 - (IBAction)addImageAction:(id)sender;
 @property UIImagePickerController *pickerController;

@@ -27,10 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper50.jpeg"]];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     self.partTable.hidden = YES;
+    self.image.hidden = YES;
+    self.imageLabel.hidden = YES;
+    self.yearLabel.hidden = YES;
+    self.yearLabelItem.hidden = YES;
+    self.genreLabel.hidden=YES;
+    self.genreLabelItem.hidden=YES;
     self.addPartButton.enabled = NO;
+    self.label.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,16 +72,29 @@
     self.addPartButton.enabled = YES;
     self.books = book;
     self.bookTitle = book.name;
+    self.image.hidden = NO;
+    self.image.image = [UIImage imageWithData:book.image];
+    self.imageLabel.hidden = NO;
+    self.yearLabel.hidden = NO;
+    self.yearLabelItem.hidden = NO;
+    self.imageButton.hidden = NO;
+    self.yearLabelItem.text = [book.year stringValue];
+    self.genreLabel.hidden=NO;
+    self.genreLabelItem.hidden = NO;
+    self.genreLabelItem.text = book.genre;
+    
     if ([[self.books part] count] >0)
     {
         self.label.text = book.name;
         self.partTable.hidden = NO;
         [self.partTable reloadData];
+        self.label.hidden = YES;
     }else if ([[self.books part] count] == 0)
     {
         [self.partTable reloadData];
         self.partTable.hidden = YES;
-        self.image.hidden = YES;
+        //self.image.hidden = YES;
+        self.label.hidden = NO;
         self.label.text = @"Для добавления главы книги нажмите + в верхнем правом углу приложения";
     }
 }
@@ -86,6 +107,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if([[self.books part] count] == 0 && self.books != nil)
+    {
+        self.label.hidden = NO;
+        self.label.text = @"Для добавления главы книги нажмите + в верхнем правом углу приложения";
+        self.partLabel.hidden = YES;
+    }
+    else
+    {
+        self.label.hidden = YES;
+        if(self.books != nil)
+        {
+        self.partLabel.hidden = NO;
+        }
+    }
     return [[self.books part] count];
 }
 
@@ -140,6 +175,18 @@
 -(void) goToMain
 {
     self.partTable.hidden = YES;
+    self.partTable.hidden = YES;
+    self.image.hidden = YES;
+    self.imageButton.hidden = YES;
+    self.imageLabel.hidden = YES;
+    self.yearLabel.hidden = YES;
+    self.yearLabelItem.hidden = YES;
+    self.genreLabel.hidden=YES;
+    self.genreLabelItem.hidden=YES;
+    self.label.hidden = YES;
+    self.books = nil;
+    self.partLabel.hidden = YES;
+    self.addPartButton.enabled = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

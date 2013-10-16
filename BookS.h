@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Author, Genre, Part;
+@class Author, Part;
 
 @interface BookS : NSManagedObject
 
 @property (nonatomic, retain) id image;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSString * genre;
 @property (nonatomic, retain) NSSet *autho;
-@property (nonatomic, retain) NSSet *genr;
 @property (nonatomic, retain) NSSet *part;
 @end
 
@@ -27,11 +27,6 @@
 - (void)removeAuthoObject:(Author *)value;
 - (void)addAutho:(NSSet *)values;
 - (void)removeAutho:(NSSet *)values;
-
-- (void)addGenrObject:(Genre *)value;
-- (void)removeGenrObject:(Genre *)value;
-- (void)addGenr:(NSSet *)values;
-- (void)removeGenr:(NSSet *)values;
 
 - (void)addPartObject:(Part *)value;
 - (void)removePartObject:(Part *)value;

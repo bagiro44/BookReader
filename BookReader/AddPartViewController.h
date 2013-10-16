@@ -23,6 +23,7 @@
 @property BookS *bookTO;
 @property (weak, nonatomic) IBOutlet UITextField *partTitleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *partDescription;
+@property (weak, nonatomic) IBOutlet UIButton *buttonFrame;
 @property DataSource *data;
 - (IBAction)SavePart:(id)sender;
 
