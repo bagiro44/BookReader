@@ -33,6 +33,7 @@
     NSMutableArray *books;
 }
 
+
 - (IBAction)AddBook:(id)sender;
 - (void) changeSource:(NSNumber *)numberOfChange;
 - (IBAction)mainView:(id)sender;
@@ -43,6 +44,7 @@
 @property (nonatomic, unsafe_unretained) id<Booking> detailDelegate;
 @property (nonatomic, strong) NSMutableArray *authorS;
 @property (nonatomic, weak) NSMutableArray *books;
+@property (nonatomic, retain) NSMutableArray *searchResults;
 @property AddAuthorViewController *authorPopover;
 @property (nonatomic, strong) UIPopoverController *authorPopoverController;
 

@@ -30,6 +30,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    
+    searchDisplayController.delegate = self;
+    searchDisplayController.searchResultsDataSource = self;
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    self.tableView.tableHeaderView = searchBar;
+    
+    
+    
+    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
     //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
@@ -62,6 +75,8 @@
     //self.authorS = tempArray;
     self.books = [data selectBook];
 
+    self.searchResults = [NSMutableArray arrayWithCapacity:[self.authorS count]];
+    [self.tableView reloadData];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *mode = [defaults objectForKey:@"showController"];
@@ -136,7 +151,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (albumMode)
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        return [self.searchResults count];
+    }
+	else
+	{
+        if (albumMode)
     {
         if(change)
         {
@@ -145,51 +166,70 @@
         return [self.authorS count];
     }
     else{
-    if(change)
-    {
-        return [[self.selectBook part] count];
+        if(change)
+        {
+            return [[self.selectBook part] count];
+        }
+        else
+        {
+            return [[[authorS objectAtIndex:section] book] count];
+        }}
+        
     }
-    else
-    {
-        return [[[authorS objectAtIndex:section] book] count];
-    }}
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil)
+        Author *book = [self.authorS objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    if (albumMode)
-    {
-        if(change)
+        static NSString *CellIdentifier = @"ce";
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text = [[self.searchResults objectAtIndex:indexPath.row] name];
+        return cell; 
+    } else {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+        if (cell == nil)
         {
-            cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row] title]];
-        }else{
-            cell.textLabel.text = [NSString stringWithFormat: @"%@", [[self.authorS objectAtIndex:indexPath.row] name]];}
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        if (albumMode)
+        {
+            if(change)
+            {
+                cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row] title]];
+            }else{
+                cell.textLabel.text = [NSString stringWithFormat: @"%@", [[self.authorS objectAtIndex:indexPath.row] name]];}
+        }
+        else{
+            if(change)
+            {
+                cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row] title]];
+            }
+            else
+            {
+                cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]];
+                cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
+            }}
+           return cell; 
     }
-    else{
-    if(change)
-    {
-        cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row] title]];
-    }
-    else
-    {
-        cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]];
-        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
-    }}
-    
-    return cell;
+        
+
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        Author *selectedBook = [self.searchResults objectAtIndex:indexPath.row];
+        [self.detailDelegate didSelectAuthor:selectedBook];
+    }else{
     if (albumMode)
     {
         if(change)
@@ -197,7 +237,8 @@
             [self.detailDelegate showPart: [[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
         }else{
         Author *selectedBook = [self.authorS objectAtIndex:indexPath.row];
-        [self.detailDelegate didSelectAuthor:selectedBook];}
+        [self.detailDelegate didSelectAuthor:selectedBook];
+        }
     }
     else{
     if(change)
@@ -209,7 +250,7 @@
         BookS *selectBook = [[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] objectAtIndex:indexPath.row];
         [self.detailDelegate didSelectBook:selectBook];
 
-    }}
+    }}}
 }
 
 - (IBAction)AddBook:(id)sender
@@ -330,8 +371,40 @@
  // Return NO if you do not want the item to be re-orderable.
  return YES;
  }
- 
 
+#pragma mark -
+#pragma mark Content Filtering
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    
+    NSLog(@"Previous Search Results were removed.");
+    [self.searchResults removeAllObjects];
+    for (Author *role in self.authorS)
+    {
+        if ([scope isEqualToString:@"All"] || [role.name isEqualToString:scope])
+        {
+            NSComparisonResult result = [role.name compare:searchText
+                                                                          options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)
+                                                                            range:NSMakeRange(0, [searchText length])];
+            if (result == NSOrderedSame)
+            {
+                NSLog(@"Adding role.name '%@' to searchResults as it begins with search text '%@'", role.name, searchText);
+                [self.searchResults addObject:role];
+            }
+        }
+    }
+}
+
+#pragma mark UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContentForSearchText:searchString scope:@"All"];
+    return YES;
+}
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:@"All"];
+    return YES;
+}
 
 @end
 

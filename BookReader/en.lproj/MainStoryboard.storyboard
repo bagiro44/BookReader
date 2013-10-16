@@ -424,6 +424,24 @@
                                 </view>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ce" textLabel="9lI-Kd-2GC" style="IBUITableViewCellStyleDefault" id="EcI-wZ-3Vp">
+                                <rect key="frame" x="0.0" y="87" width="320" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9lI-Kd-2GC">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="moS-2P-aue" id="XWd-uZ-rHc"/>
@@ -445,9 +463,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addBookButton" destination="XPx-Lb-e3s" id="qa7-Oy-55L"/>
+                        <outlet property="searchDisplayController" destination="gmH-Cj-FBc" id="7xT-ty-wJf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yq-OH-PhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="gmH-Cj-FBc">
+                    <connections>
+                        <outlet property="delegate" destination="moS-2P-aue" id="kqC-e0-hsg"/>
+                        <outlet property="searchContentsController" destination="moS-2P-aue" id="bvC-Eg-nlK"/>
+                        <outlet property="searchResultsDataSource" destination="moS-2P-aue" id="EGw-Ep-1AQ"/>
+                        <outlet property="searchResultsDelegate" destination="moS-2P-aue" id="G6a-BX-I07"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="124" y="-1951"/>
         </scene>
@@ -632,109 +659,6 @@
         <image name="empyImage.png" width="512" height="512"/>
         <image name="mainBook.png" width="3719" height="2000"/>
     </resources>
-    <classes>
-        <class className="AddAuthorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddAuthorViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelAction:"/>
-                <relationship kind="action" name="saveAction:"/>
-                <relationship kind="outlet" name="authorNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="saveAuthor" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="AddBookViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddBookViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addAuthor:"/>
-                <relationship kind="action" name="addGenre:"/>
-                <relationship kind="action" name="addImageAction:"/>
-                <relationship kind="action" name="addYear:"/>
-                <relationship kind="action" name="closeView:"/>
-                <relationship kind="action" name="saveBook"/>
-                <relationship kind="outlet" name="addAuthorButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="addImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="genreButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yearTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddPartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="SavePart:"/>
-                <relationship kind="outlet" name="buttonFrame" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="partDescription" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="partTitleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BookCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookCollectionCell.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteBook:"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageBook" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleBook" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BookCollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookCollectionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addBook:"/>
-                <relationship kind="action" name="deleteBook:"/>
-                <relationship kind="outlet" name="BookCollection" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addPart:"/>
-                <relationship kind="outlet" name="addPartButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="genreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="genreLabelItem" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="partLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="partTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="yearLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yearLabelItem" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="AddBook:"/>
-                <relationship kind="action" name="mainView:"/>
-                <relationship kind="action" name="testAction:"/>
-                <relationship kind="outlet" name="addBookButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PartViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="partDescription" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="PopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PopoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
