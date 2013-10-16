@@ -2,7 +2,7 @@
 //  Genre.m
 //  BookReader
 //
-//  Created by Dmitriy Remezov on 08.10.13.
+//  Created by Dmitriy Remezov on 16.10.13.
 //  Copyright (c) 2013 Dmitriy Remezov. All rights reserved.
 //
 

@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		7702DABA1800653800644A99 /* AddGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAB91800653800644A99 /* AddGenreViewController.m */; };
 		7702DAC918040E5900644A99 /* AddPartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAC818040E5900644A99 /* AddPartViewController.m */; };
-		7702DACC18042A1600644A99 /* BookS.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DACB18042A1600644A99 /* BookS.m */; };
-		7702DAD018042A6900644A99 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DACF18042A6900644A99 /* Author.m */; };
-		7702DADC18042D9600644A99 /* Part.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DADB18042D9600644A99 /* Part.m */; };
-		7702DADF180435C600644A99 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DADE180435C600644A99 /* Genre.m */; };
 		7702DAE21804421E00644A99 /* PartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702DAE11804421E00644A99 /* PartViewController.m */; };
 		7702DAE718068C9100644A99 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7702DAE618068C9100644A99 /* Settings.bundle */; };
 		770B20C317E766D000AF23FB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B20C217E766D000AF23FB /* MasterViewController.m */; };
@@ -27,6 +23,11 @@
 		779436491808810B006AF862 /* BookCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779436481808810B006AF862 /* BookCollectionViewController.m */; };
 		7794364F180B585B006AF862 /* AddAuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794364E180B585B006AF862 /* AddAuthorViewController.m */; };
 		77943651180C6C1C006AF862 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 77943650180C6C1C006AF862 /* home.png */; };
+		77943654180E9D5F006AF862 /* empyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 77943653180E9D5F006AF862 /* empyImage.png */; };
+		77943657180EA627006AF862 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943656180EA627006AF862 /* Author.m */; };
+		7794365A180EA634006AF862 /* BookS.m in Sources */ = {isa = PBXBuildFile; fileRef = 77943659180EA634006AF862 /* BookS.m */; };
+		7794365D180EA63D006AF862 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794365C180EA63D006AF862 /* Genre.m */; };
+		77943660180EA645006AF862 /* Part.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794365F180EA645006AF862 /* Part.m */; };
 		77982EEC17E7628F000631B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEB17E7628F000631B4 /* UIKit.framework */; };
 		77982EEE17E7628F000631B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EED17E7628F000631B4 /* Foundation.framework */; };
 		77982EF017E76290000631B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77982EEF17E7628F000631B4 /* CoreGraphics.framework */; };
@@ -44,14 +45,6 @@
 		7702DAB91800653800644A99 /* AddGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGenreViewController.m; path = BookReader/AddGenreViewController.m; sourceTree = "<group>"; };
 		7702DAC718040E5900644A99 /* AddPartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPartViewController.h; path = BookReader/AddPartViewController.h; sourceTree = "<group>"; };
 		7702DAC818040E5900644A99 /* AddPartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPartViewController.m; path = BookReader/AddPartViewController.m; sourceTree = "<group>"; };
-		7702DACA18042A1600644A99 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookS.h; path = BookReader/BookS.h; sourceTree = "<group>"; };
-		7702DACB18042A1600644A99 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookS.m; path = BookReader/BookS.m; sourceTree = "<group>"; };
-		7702DACE18042A6900644A99 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
-		7702DACF18042A6900644A99 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
-		7702DADA18042D9600644A99 /* Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Part.h; sourceTree = "<group>"; };
-		7702DADB18042D9600644A99 /* Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Part.m; sourceTree = "<group>"; };
-		7702DADD180435C600644A99 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
-		7702DADE180435C600644A99 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
 		7702DAE01804421E00644A99 /* PartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartViewController.h; sourceTree = "<group>"; };
 		7702DAE11804421E00644A99 /* PartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartViewController.m; sourceTree = "<group>"; };
 		7702DAE618068C9100644A99 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../../Settings.bundle; sourceTree = "<group>"; };
@@ -75,6 +68,15 @@
 		7794364D180B585B006AF862 /* AddAuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAuthorViewController.h; path = BookReader/AddAuthorViewController.h; sourceTree = "<group>"; };
 		7794364E180B585B006AF862 /* AddAuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAuthorViewController.m; path = BookReader/AddAuthorViewController.m; sourceTree = "<group>"; };
 		77943650180C6C1C006AF862 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		77943653180E9D5F006AF862 /* empyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empyImage.png; sourceTree = "<group>"; };
+		77943655180EA627006AF862 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		77943656180EA627006AF862 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		77943658180EA634006AF862 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookS.h; sourceTree = "<group>"; };
+		77943659180EA634006AF862 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookS.m; sourceTree = "<group>"; };
+		7794365B180EA63D006AF862 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		7794365C180EA63D006AF862 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
+		7794365E180EA645006AF862 /* Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Part.h; sourceTree = "<group>"; };
+		7794365F180EA645006AF862 /* Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Part.m; sourceTree = "<group>"; };
 		77982EE817E7628F000631B4 /* BookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77982EEB17E7628F000631B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		77982EED17E7628F000631B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,14 +114,14 @@
 				7790E32A17FC3BCF0000C187 /* DataSource.h */,
 				7790E32B17FC3BCF0000C187 /* DataSource.m */,
 				771E950417F453C3004C46D4 /* Books.xcdatamodeld */,
-				7702DADD180435C600644A99 /* Genre.h */,
-				7702DADE180435C600644A99 /* Genre.m */,
-				7702DADA18042D9600644A99 /* Part.h */,
-				7702DADB18042D9600644A99 /* Part.m */,
-				7702DACE18042A6900644A99 /* Author.h */,
-				7702DACF18042A6900644A99 /* Author.m */,
-				7702DACA18042A1600644A99 /* BookS.h */,
-				7702DACB18042A1600644A99 /* BookS.m */,
+				7794365E180EA645006AF862 /* Part.h */,
+				7794365F180EA645006AF862 /* Part.m */,
+				7794365B180EA63D006AF862 /* Genre.h */,
+				7794365C180EA63D006AF862 /* Genre.m */,
+				77943655180EA627006AF862 /* Author.h */,
+				77943656180EA627006AF862 /* Author.m */,
+				77943658180EA634006AF862 /* BookS.h */,
+				77943659180EA634006AF862 /* BookS.m */,
 			);
 			name = CoreData;
 			path = ..;
@@ -128,6 +130,7 @@
 		771E94CE17F1C881004C46D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77943653180E9D5F006AF862 /* empyImage.png */,
 				77943650180C6C1C006AF862 /* home.png */,
 				7702DAE618068C9100644A99 /* Settings.bundle */,
 				771E94CF17F1C881004C46D4 /* mainBook.png */,
@@ -278,6 +281,7 @@
 				771E94D017F1C881004C46D4 /* mainBook.png in Resources */,
 				7702DAE718068C9100644A99 /* Settings.bundle in Resources */,
 				77943651180C6C1C006AF862 /* home.png in Resources */,
+				77943654180E9D5F006AF862 /* empyImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,14 +302,14 @@
 				7790E32C17FC3BCF0000C187 /* DataSource.m in Sources */,
 				7702DABA1800653800644A99 /* AddGenreViewController.m in Sources */,
 				7702DAC918040E5900644A99 /* AddPartViewController.m in Sources */,
-				7702DACC18042A1600644A99 /* BookS.m in Sources */,
-				7702DAD018042A6900644A99 /* Author.m in Sources */,
-				7702DADC18042D9600644A99 /* Part.m in Sources */,
-				7702DADF180435C600644A99 /* Genre.m in Sources */,
 				7702DAE21804421E00644A99 /* PartViewController.m in Sources */,
 				7794364318088026006AF862 /* BookCollectionCell.m in Sources */,
 				779436491808810B006AF862 /* BookCollectionViewController.m in Sources */,
 				7794364F180B585B006AF862 /* AddAuthorViewController.m in Sources */,
+				77943657180EA627006AF862 /* Author.m in Sources */,
+				7794365A180EA634006AF862 /* BookS.m in Sources */,
+				7794365D180EA63D006AF862 /* Genre.m in Sources */,
+				77943660180EA645006AF862 /* Part.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.pickerController = [[UIImagePickerController alloc] init];
+    self.pickerController.allowsImageEditing = NO;
+    self.pickerController.delegate = self;
+    self.pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"save"
@@ -48,12 +52,14 @@
 {
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
     //[data addBPart:self.yearTextField.text number:self.name.text title:nil desc:nil];
-    [data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text];
+    [data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text image:self.imageData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
     
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
 
 - (IBAction)closeView:(id)sender
 {
@@ -99,6 +105,24 @@
                                permittedArrowDirections:UIPopoverArrowDirectionAny
                                                animated:YES];
     }
+}
+
+
+- (IBAction)addImageAction:(id)sender
+{
+    self.pickerController.delegate = self;
+    self.imagePopoverController=[[UIPopoverController alloc] initWithContentViewController:self.pickerController];
+    self.imagePopoverController.delegate=self;
+    [self.imagePopoverController presentPopoverFromRect:((UIButton *)sender).bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //[self dismissModalViewControllerAnimated:YES];
+    self.filmImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.editImage.image = self.filmImage;
+    self.imageData = UIImagePNGRepresentation(self.filmImage);
 }
 
 - (IBAction)addGenre:(id)sender

@@ -30,23 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.addGenreButton.hidden = YES;
-    self.addGenreLabel.hidden = YES;
-    self.addGenreTextField.hidden = YES;
-    
-    
-    
     _data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
     switch ([self.numberOfChoise integerValue])
     {
     case 0:
-        self.showAddGenreButton.hidden = YES;
-            //[self.picker setFrame:[CGRectMake(0, 39, <#CGFloat width#>, <#CGFloat height#>)]];
         self.authorArray = [_data selectAuthor];
         break;
     case 1:
-        self.topLabel.text = @"Выберите жанр:";
-        self.authorArray = [_data selectYear];
+        self.authorArray = [[NSArray alloc] initWithObjects:@"18+", @"Аниме", @"Биография", @"Боевик", @"Вестерн", @"Военный", @"Детектив", @"Детский", @"Документальный", @"Драма", @"Игра", @"История", @"Комедия", @"Концерт", @"Короткометражка", @"Криминал", @"Мелодрама", @"Музыка", @"Мультфильм", @"Мюзикл", @"Новости", @"Приключения", @"Семейный", @"Сериал", @"Спорт", @"Ток-шоу", @"Триллер", @"Ужасы", @"Фантастика", @"Фентези", @"ТВ", nil];
         break;
     default:
         break;
@@ -79,11 +70,26 @@
 
 - (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if ([self.authorArray count] > 0)
+    if ([self.numberOfChoise integerValue] == 0)
     {
-        return [[self.authorArray objectAtIndex:row] name];
-    }else{
-        return @"Нет жанра для выбора";
+        if ([self.authorArray count] > 0)
+        {
+            return [[self.authorArray objectAtIndex:row] name];
+        }else
+        {
+            return @"Нет автора для выбора";
+        }
+        
+
+    }else
+    {
+        if ([self.authorArray count] > 0)
+        {
+                    return [self.authorArray objectAtIndex:row];
+        }else
+        {
+            return @"Нет жанра для выбора";
+        }
     }
     
 }
@@ -94,7 +100,13 @@
 {
     if ([self.authorArray count] > 0)
     {
-        [delegate chooseAuthor:[[self.authorArray objectAtIndex:row] name] numberOfChoise:self.numberOfChoise];
+        if ([self.numberOfChoise integerValue] == 0)
+        {
+            return [delegate chooseAuthor:[[self.authorArray objectAtIndex:row] name] numberOfChoise:self.numberOfChoise];
+        }else
+        {
+            return [delegate chooseAuthor:[self.authorArray objectAtIndex:row] numberOfChoise:self.numberOfChoise];
+        }
     } 
 
 }
@@ -102,27 +114,5 @@
 - (void) chooseAuthor:(NSString *)authorName numberOfChoise:(NSNumber *)numberOfChoise
 {
     
-}
-
-- (IBAction)addGenre:(id)sender
-{
-    [_data addGenre:self.addGenreTextField.text];
-    
-    self.topLabel.hidden = NO;
-    self.addGenreButton.hidden = YES;
-    self.addGenreLabel.hidden = YES;
-    self.addGenreTextField.hidden = YES;
-    self.picker.hidden = NO;
-    self.showAddGenreButton.hidden = NO;
-    
-}
-- (IBAction)showAddGenreView:(id)sender
-{
-    self.topLabel.hidden = YES;
-    self.addGenreButton.hidden = NO;
-    self.addGenreLabel.hidden = NO;
-    self.addGenreTextField.hidden = NO;
-    self.picker.hidden = YES;
-    self.showAddGenreButton.hidden = YES;
 }
 @end

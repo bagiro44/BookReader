@@ -19,9 +19,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *button;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addPartButton;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property BookS *books;

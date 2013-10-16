@@ -80,14 +80,15 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if ([[self.author book] count] == 0) {self.BookCollection.hidden = YES;}
+    if ([[self.author book] count] == 0) {self.BookCollection.hidden = YES;}else{self.BookCollection.hidden = NO;}
     return [[self.author book] count];
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BookCollectionCell *cell = (BookCollectionCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCellColelction" forIndexPath:indexPath];
-    cell.deleteButton.hidden = YES;
-    cell.titleBook.text = [[[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] objectAtIndex:indexPath.row] name];
+    BookS *tempBook = [[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] objectAtIndex:indexPath.row];
+    cell.imageBook.image = [UIImage imageWithData:tempBook.image];
+    cell.titleBook.text = tempBook.name;
     return cell;
 }
 
@@ -96,9 +97,11 @@
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
     [navigationControllerMaster setChange:YES];
     [navigationControllerMaster.navigationItem setTitle:[NSString stringWithFormat:@"%@",[[[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]]];
-    [navigationControllerMaster setSelectBook:[[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row]];
+    self.bookToAddPArt = [[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row];
+    [navigationControllerMaster setSelectBook:self.bookToAddPArt];
     [navigationControllerMaster.tableView reloadData];
     self.BookCollection.hidden = YES;
+    self.canIAddPart = YES;
 }
 
 - (void)didLogPressCellToDelete:(UILongPressGestureRecognizer*)gesture {
@@ -106,19 +109,18 @@
     NSIndexPath *indexPath = [self.BookCollection indexPathForItemAtPoint:tapLocation];
     if (indexPath && gesture.state == UIGestureRecognizerStateBegan) {
         self.deletedIndexpath = indexPath;
-        NSLog(@"image with index %d to be deleted", indexPath.item);
                 UIAlertView *deleteAlert = [[UIAlertView alloc]
-                                    initWithTitle:@"Delete?"
-                                    message:@"Are you sure you want to delete this image?"
-                                    delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+                                    initWithTitle:@"Удалить?"
+                                    message:@"Вы уверены что хотите удалить эту книгу?"
+                                    delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles:@"Да", nil];
         [deleteAlert show];
         
     }
 }
 
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"selected button index = %d", buttonIndex);
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 1) {
         [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteBook:[[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] objectAtIndex:self.deletedIndexpath.row]];
         [self.BookCollection reloadData];
@@ -165,23 +167,32 @@
 - (void) addAuthor
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addAuthor"];
-    //[self.navigationController presentModalViewController:addBookViewController animated:YES];
-    [self.navigationController pushViewController:addBookViewController animated:YES];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addAuthor"];
+        //[self.navigationController presentModalViewController:addBookViewController animated:YES];
+        [self.navigationController pushViewController:addBookViewController animated:YES];
 }
 - (IBAction)addBook:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"blockButton" object:self];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"first"];
-    [self.navigationController presentModalViewController:addBookViewController animated:YES];
+    if(self.canIAddPart)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        AddPartViewController *addBookViewController = (AddPartViewController *)[storyboard instantiateViewControllerWithIdentifier:@"addPartView"];
+        addBookViewController.itIscollectionView = YES;
+        addBookViewController.bookTO = self.bookToAddPArt;
+        [self.navigationController pushViewController:addBookViewController animated:YES];
+    }else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        AddBookViewController *addBookViewController = (AddBookViewController *)[storyboard instantiateViewControllerWithIdentifier:@"first"];
+        [self.navigationController presentModalViewController:addBookViewController animated:YES];
+    }
 }
 
 -(void) goToMain
 {
+    self.canIAddPart = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

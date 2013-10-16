@@ -15,7 +15,7 @@
 
 @implementation DetailViewController
 
-@synthesize toolBar, navItem, button, albumMode;
+@synthesize navItem, albumMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

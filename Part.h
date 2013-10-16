@@ -2,7 +2,7 @@
 //  Part.h
 //  BookReader
 //
-//  Created by Dmitriy Remezov on 08.10.13.
+//  Created by Dmitriy Remezov on 16.10.13.
 //  Copyright (c) 2013 Dmitriy Remezov. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @interface Part : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * descriptionpart;
 @property (nonatomic, retain) NSNumber * number;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) BookS *books;
 
 @end

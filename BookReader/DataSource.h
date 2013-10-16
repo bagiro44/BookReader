@@ -27,7 +27,7 @@
 - (NSMutableArray *) selectPart;
 
 - (BOOL) addAuthor:(NSString *)author;
-- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name;
+- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;
 - (BOOL) addBPart:(NSString *)book number:(NSString *)number title:(NSString *)title desc:(NSString *)description;
 - (BOOL) addGenre:(NSString *)genre;
 

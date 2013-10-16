@@ -5,7 +5,7 @@
         <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookS" inverseName="autho" inverseEntity="BookS" syncable="YES"/>
     </entity>
     <entity name="BookS" representedClassName="BookS" syncable="YES">
-        <attribute name="image" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="autho" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" inverseName="book" inverseEntity="Author" syncable="YES"/>
@@ -24,7 +24,7 @@
     </entity>
     <elements>
         <element name="Author" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="BookS" positionX="153" positionY="-42" width="128" height="135"/>
+        <element name="BookS" positionX="153" positionY="-42" width="128" height="133"/>
         <element name="Genre" positionX="-92" positionY="132" width="128" height="73"/>
         <element name="Part" positionX="358" positionY="-15" width="128" height="105"/>
     </elements>

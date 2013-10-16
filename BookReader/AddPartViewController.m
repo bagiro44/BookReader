@@ -8,6 +8,7 @@
 
 #import "AddPartViewController.h"
 #import "DetailViewController.h"
+#import "BookCollectionViewController.h"
 
 @interface AddPartViewController ()
 
@@ -46,10 +47,16 @@
 - (IBAction)SavePart:(id)sender
 {
     [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
-    DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
-    [navigationControllerMaster.partTable setHidden:NO];
-    [navigationControllerMaster.partTable reloadData];
+    if(self.itIscollectionView)
+    {
+        MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+        [navigationControllerMaster.tableView reloadData];
+    }else
+    {
+        DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+        [navigationControllerMaster.partTable setHidden:NO];
+        [navigationControllerMaster.partTable reloadData];
+    }
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 @end

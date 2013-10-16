@@ -15,8 +15,8 @@
 			<string>PSMultiValueSpecifier</string>
 			<key>Titles</key>
 			<array>
-				<string>book</string>
-				<string>author</string>
+				<string>Книги</string>
+				<string>Авторы</string>
 			</array>
 			<key>Values</key>
 			<array>

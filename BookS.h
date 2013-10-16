@@ -2,18 +2,18 @@
 //  BookS.h
 //  BookReader
 //
-//  Created by Dmitriy Remezov on 08.10.13.
+//  Created by Dmitriy Remezov on 16.10.13.
 //  Copyright (c) 2013 Dmitriy Remezov. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Author;
+@class Author, Genre, Part;
 
 @interface BookS : NSManagedObject
 
-@property (nonatomic, retain) NSDate * image;
+@property (nonatomic, retain) id image;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSSet *autho;
@@ -28,13 +28,13 @@
 - (void)addAutho:(NSSet *)values;
 - (void)removeAutho:(NSSet *)values;
 
-- (void)addGenrObject:(NSManagedObject *)value;
-- (void)removeGenrObject:(NSManagedObject *)value;
+- (void)addGenrObject:(Genre *)value;
+- (void)removeGenrObject:(Genre *)value;
 - (void)addGenr:(NSSet *)values;
 - (void)removeGenr:(NSSet *)values;
 
-- (void)addPartObject:(NSManagedObject *)value;
-- (void)removePartObject:(NSManagedObject *)value;
+- (void)addPartObject:(Part *)value;
+- (void)removePartObject:(Part *)value;
 - (void)addPart:(NSSet *)values;
 - (void)removePart:(NSSet *)values;
 

@@ -21,15 +21,7 @@
 @interface PopoverViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (nonatomic, weak) id<author> delegate;
 @property (nonatomic, weak) NSNumber *numberOfChoise;
-- (IBAction)addGenre:(id)sender;
-- (IBAction)showAddGenreView:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *showAddGenreButton;
-@property (weak, nonatomic) IBOutlet UILabel *topLabel;
-
 @property DataSource *data;
-@property (weak, nonatomic) IBOutlet UILabel *addGenreLabel;
-@property (weak, nonatomic) IBOutlet UITextField *addGenreTextField;
-@property (weak, nonatomic) IBOutlet UIButton *addGenreButton;
 @property NSArray *authorArray;
 @property NSString *authorName;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;

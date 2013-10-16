@@ -21,9 +21,10 @@
 
 @end
 
-@interface AddBookViewController : UIViewController //<authorChoose>
+@interface AddBookViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate>
 @property (nonatomic, unsafe_unretained) id<addProtocol> masterDelegate;
 @property PopoverViewController *authorPopover;
+@property (nonatomic, strong) UIPopoverController *imagePopoverController;
 @property (nonatomic, strong) UIPopoverController *authorPopoverController;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -35,6 +36,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *addtitle;
 @property (weak, nonatomic) IBOutlet UITextField *adddesc;
 
+@property (weak, nonatomic) IBOutlet UIButton *addImageButton;
+- (IBAction)addImageAction:(id)sender;
+@property UIImagePickerController *pickerController;
+@property UIImage *filmImage;
+@property (weak, nonatomic) IBOutlet UIImageView *editImage;
+
+@property NSData *imageData;
 
 - (IBAction)closeView:(id)sender;
 - (IBAction)saveBook;

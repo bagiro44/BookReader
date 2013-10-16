@@ -72,20 +72,21 @@
     return YES;
 }
 
-- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name
+- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;
 {
     //описание новой книги для добавления в БД
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
     BookS *book = [[BookS alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];    
     book.year = [NSNumber numberWithInteger:year];
     book.name = name;
+    book.image = image;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"Genre" inManagedObjectContext:self.managedObjectContext];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", genre];
     [fetchRequest setPredicate:predicate];
     [fetchRequest setEntity:authorEntity];
-    Genre *genree = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    //Genre *genree = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     //получение автора для добавления связи с книгой
     fetchRequest = [[NSFetchRequest alloc] init];
     authorEntity = [NSEntityDescription entityForName:@"Author" inManagedObjectContext:self.managedObjectContext];
@@ -100,7 +101,7 @@
     }    
 
     [book addAuthoObject:array];
-    [book addGenrObject:genree];
+    //[book addGenrObject:genree];
     
     
     

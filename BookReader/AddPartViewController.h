@@ -19,10 +19,12 @@
 
 @interface AddPartViewController : UIViewController
 
+@property BOOL *itIscollectionView;
 @property BookS *bookTO;
 @property (weak, nonatomic) IBOutlet UITextField *partTitleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *partDescription;
 @property DataSource *data;
 - (IBAction)SavePart:(id)sender;
+
 
 @end
