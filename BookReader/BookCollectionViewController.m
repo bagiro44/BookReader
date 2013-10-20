@@ -193,6 +193,9 @@
 
 -(void) goToMain
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+    MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+    [navigationControllerMaster.navigationItem setTitle:@""];
     self.canIAddPart = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

@@ -16,7 +16,7 @@
 
 @implementation MasterViewController
 
-@synthesize detailDelegate, authorS, change, selectBook, albumMode;
+@synthesize detailDelegate, authorS, change, selectBook, albumMode, searchBar, searchDisplayController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,18 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    
-    searchDisplayController.delegate = self;
-    searchDisplayController.searchResultsDataSource = self;
-    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
-    self.tableView.tableHeaderView = searchBar;
-    
-    
-    
+        
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
@@ -61,34 +50,65 @@
                                              selector:@selector(defaultsChanged:)
                                                  name:NSUserDefaultsDidChangeNotification
                                                object:nil];
-    DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    self.authorS = [data selectAuthor];
-    //NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    //for (Author *author in self.authorS)
-    //{
-     //   if ([[author book] count])
-     //   {
-     //       [tempArray addObject:author];
-     //       NSLog(@"%lu", [[author book] count]);
-     //   }
-    //}
-    //self.authorS = tempArray;
-    self.books = [data selectBook];
-
-    self.searchResults = [NSMutableArray arrayWithCapacity:[self.authorS count]];
-    [self.tableView reloadData];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *mode = [defaults objectForKey:@"showController"];
     if ([mode isEqual:@"0"])
     {
         albumMode = NO;
+        if (change == NO)
+        {
+            searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 40, 320, 44)];
+            searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+            
+            searchDisplayController.delegate = self;
+            searchDisplayController.searchResultsDataSource = self;
+            searchDisplayController.searchResultsDelegate = self;
+            self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+            UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+            
+            UIButton *showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [showFilterButton addTarget:self
+                       action:@selector(showFilter:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+            showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+            //UIButton *showFilter = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, 200, 44)];
+            //showFilter.titleLabel.text = @"Фильтр";
+            [headerViewToAdd addSubview:showFilterButton];
+            [headerViewToAdd addSubview:searchBar];
+            self.tableView.tableHeaderView = headerViewToAdd;
+        }
+
     }else
     {
         albumMode = YES;
+        searchBar.hidden = YES;
         [self.tableView reloadData];
         [self.detailDelegate changeDetail:self];
     }
+    
+    DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    self.authorS = [data selectAuthor];
+    if (!albumMode)
+    {
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        for (Author *author in self.authorS)
+        {
+           if ([[author book] count])
+           {
+               [tempArray addObject:author];
+               //NSLog(@"%lu", [[author book] count]);
+           }
+        }
+        self.authorS = tempArray;
+    }
+    self.books = [data selectBook];
+
+    self.searchResults = [NSMutableArray arrayWithCapacity:[self.authorS count]];
+    [self.tableView reloadData];
+    
+    
 }
 
 - (void) changeSource:(NSNumber *)numberOfChange
@@ -118,8 +138,13 @@
         }
         return 1;
     }else{
+        if (tableView == self.searchDisplayController.searchResultsTableView)
+        {
+            return 1;
+        }
     if(change)
     {
+        
         return 1;
     }
     else
@@ -139,6 +164,10 @@
         }
         return nil;
     }else{
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return nil;
+    }
     if(change)
     {
         return nil;
@@ -181,31 +210,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-        Author *book = [self.authorS objectAtIndex:indexPath.row];
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        static NSString *CellIdentifier = @"ce";
-        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = [[self.searchResults objectAtIndex:indexPath.row] name];
-        return cell; 
-    } else {
-        static NSString *CellIdentifier = @"Cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-        if (cell == nil)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
+        
         if (albumMode)
         {
+            static NSString *CellIdentifier = @"Cell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            
+            if (cell == nil)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
             if(change)
             {
                 cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row] title]];
             }else{
                 cell.textLabel.text = [NSString stringWithFormat: @"%@", [[self.authorS objectAtIndex:indexPath.row] name]];}
+            return cell; 
         }
         else{
+            if (tableView == self.searchDisplayController.searchResultsTableView)
+            {
+                //Author *book = [self.authorS objectAtIndex:indexPath.row];
+                static NSString *CellIdentifier = @"ce";
+                UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                cell.textLabel.text = [[self.searchResults objectAtIndex:indexPath.row] name];
+                return cell; 
+            } else {
+                static NSString *CellIdentifier = @"Cell";
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                
+                if (cell == nil)
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                }
+            
             if(change)
             {
                 cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row] title]];
@@ -214,8 +252,11 @@
             {
                 cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]];
                 cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
-            }}
-           return cell; 
+            }
+            return cell;
+            }
+                
+           
     }
         
 
@@ -225,11 +266,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.tableView == self.searchDisplayController.searchResultsTableView)
+    if (tableView == self.searchDisplayController.searchResultsTableView)
     {
-        Author *selectedBook = [self.searchResults objectAtIndex:indexPath.row];
-        [self.detailDelegate didSelectAuthor:selectedBook];
-    }else{
+        BookS *selectedBook = [self.searchResults objectAtIndex:indexPath.row];
+        [self.detailDelegate didSelectBook:selectedBook];
+    }
+    else
+    {
     if (albumMode)
     {
         if(change)
@@ -278,16 +321,19 @@
     if ([[notification name] isEqualToString:@"reloadTable"])
     {
         self.authorS = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectAuthor];
-        /*NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-        for (Author *author in self.authorS)
+        if (!albumMode)
         {
-            if ([[author book] count])
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (Author *author in self.authorS)
             {
-                [tempArray addObject:author];
-                NSLog(@"%lu", [[author book] count]);
+                if ([[author book] count])
+                {
+                    [tempArray addObject:author];
+                    //NSLog(@"%lu", [[author book] count]);
+                }
             }
+            self.authorS = tempArray;
         }
-        self.authorS = tempArray;*/
         self.books = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectBook];
         [self.tableView reloadData];
     }
@@ -301,8 +347,24 @@
     {
         if (albumMode == YES)
         {
-            albumMode = NO;
-            [self.tableView reloadData];
+            if (change == NO)
+            {
+                albumMode = NO;
+                searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+                searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+                
+                searchDisplayController.delegate = self;
+                searchDisplayController.searchResultsDataSource = self;
+                searchDisplayController.searchResultsDelegate = self;
+                self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+                UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+                [headerViewToAdd addSubview:searchBar];
+                //[headerViewToAdd addSubview:searchBar];
+                self.tableView.tableHeaderView = headerViewToAdd;
+            }
+            
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
             [self.detailDelegate changeDetail:self];
         }
         
@@ -311,16 +373,25 @@
         if (albumMode == NO)
         {
             albumMode = YES;
-            [self.tableView reloadData];
+            [searchDisplayController setActive:NO animated:YES];
+            [searchBar removeFromSuperview];
+            
+            self.tableView.contentOffset = CGPointMake(0, 0);
+            self.tableView.tableHeaderView = nil;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
             [self.detailDelegate changeDetail:self];
         }
     }    
-    NSLog(@"%@", self.splitViewController.viewControllers);
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return NO;
+    }
     return YES;
 }
 
@@ -341,6 +412,7 @@
                 self.authorS = [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] selectAuthor];
                 //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
             }
         }
         else{
@@ -353,11 +425,11 @@
             else
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deleteBook:[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row]];
-                //[[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
+                [self.detailDelegate goToMain];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 
-            }}
-        
+            }}        
     }
 }
 
@@ -378,7 +450,7 @@
     
     NSLog(@"Previous Search Results were removed.");
     [self.searchResults removeAllObjects];
-    for (Author *role in self.authorS)
+    for (BookS *role in _books)
     {
         if ([scope isEqualToString:@"All"] || [role.name isEqualToString:scope])
         {
@@ -406,6 +478,20 @@
     return YES;
 }
 
+- (IBAction)showFilter:(id)sender
+{
+    //self.FilterPopoverController.delegate = self;
+    if (self.filterView == nil)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        self.filterView = (FilterViewViewController *)[storyboard instantiateViewControllerWithIdentifier:@"filterView"];
+    }
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.filterView];
+    
+    self.FilterPopoverController=[[UIPopoverController alloc] initWithContentViewController:navigationController];
+    self.FilterPopoverController.delegate=self;    
+    [self.FilterPopoverController presentPopoverFromRect:((UIButton *)sender).bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
 @end
 
- 
+

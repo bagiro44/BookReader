@@ -32,6 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
+@property (weak, nonatomic) IBOutlet UITextField *publisherHouse;
 
 @property (weak, nonatomic) IBOutlet UIButton *genreButton;
 @property (weak, nonatomic) IBOutlet UIButton *addImageButton;

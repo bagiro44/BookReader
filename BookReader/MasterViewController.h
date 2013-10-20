@@ -11,6 +11,7 @@
 #import "BookS.h"
 #import "Part.h"
 #import "AddAuthorViewController.h"
+#import "FilterViewViewController.h"
 @class AlbumAuthorViewController;
 
 @protocol Booking <NSObject>
@@ -28,8 +29,6 @@
 
 @interface MasterViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
 {
-    UISearchBar *searchBar;
-    UISearchDisplayController *searchDisplayController;
     NSMutableArray *books;
 }
 
@@ -37,18 +36,21 @@
 - (IBAction)AddBook:(id)sender;
 - (void) changeSource:(NSNumber *)numberOfChange;
 - (IBAction)mainView:(id)sender;
+@property UIPopoverController *FilterPopoverController;
+@property FilterViewViewController *filterView;
 @property BOOL *change;
 @property BOOL *albumMode;
-
+@property UISearchBar *searchBar;
+@property UISearchDisplayController *searchDisplayController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addBookButton;
 @property (nonatomic, unsafe_unretained) id<Booking> detailDelegate;
 @property (nonatomic, strong) NSMutableArray *authorS;
-@property (nonatomic, weak) NSMutableArray *books;
+@property (nonatomic, strong) NSMutableArray *books;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 @property AddAuthorViewController *authorPopover;
 @property (nonatomic, strong) UIPopoverController *authorPopoverController;
 
-- (IBAction)testAction:(id)sender;
+- (IBAction)showFilter:(id)sender;
 @property BookS *selectBook;
 
 @end

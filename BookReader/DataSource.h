@@ -11,6 +11,7 @@
 #import "Author.h"
 #import "BookS.h"
 #import "Part.h"
+#import "PublishHouse.h"
 
 @interface DataSource : NSObject
 
@@ -24,13 +25,16 @@
 - (NSMutableArray *) selectGenre;
 - (NSMutableArray *) selectBook;
 - (NSMutableArray *) selectPart;
+- (NSMutableArray *) selectPublisherHouses;
 
 - (BOOL) seacrhByPartTitle:(NSString *)part inBook:(BookS *)book;
 - (BOOL) seacrhByBookName:(NSString *)name;
 - (BOOL) seacrhByAuthorName:(NSString *)name;
+- (NSMutableArray *) seaarchBook:(NSString *)bookName author:(NSString *) author yearFrom:(NSNumber *)yearFrom yearTo:(NSNumber *) yearTo publisherHouse:(NSString *) publisherHouse;
 
 - (BOOL) addAuthor:(NSString *)author;
-- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;
+- (BOOL) addPublisherHouse:(NSString *)publisherHouse;
+- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image publisherHouse:(NSString *)publisherHouse;
 - (BOOL) addBPart:(NSString *)book number:(NSString *)number title:(NSString *)title desc:(NSString *)description;
 - (BOOL) addGenre:(NSString *)genre;
 

@@ -72,7 +72,7 @@
         if (![self.addAuthorButton.titleLabel.text isEqualToString:@"Выберите автора..."])
         {
             DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-            if (![data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text image:self.imageData])
+            if (![data addBook:self.addAuthorButton.titleLabel.text year:self.yearTextField.text genre:self.genreButton.titleLabel.text name:self.name.text image:self.imageData publisherHouse:self.publisherHouse.text])
             {
                 UIAlertView *deleteAlert = [[UIAlertView alloc]
                                             initWithTitle:@"Ошибка"
@@ -103,7 +103,7 @@
 - (IBAction)closeView:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) chooseAuthor:(NSString *)authorName numberOfChoise:(NSNumber*)numberOfChoise

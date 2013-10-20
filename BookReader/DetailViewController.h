@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addPartButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *bookTitle;
 @property (weak, nonatomic) IBOutlet UILabel *imageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
@@ -30,10 +31,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *partLabel;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
+@property (weak, nonatomic) IBOutlet UILabel *paperHouseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *paperHouseNameLabel;
 
 @property BookS *books;
 @property Part *partOfBook;
-@property NSString *bookTitle;
+@property NSString *bookTitleNotLabel;
 @property BOOL *albumMode;
 
 - (IBAction)addPart:(id)sender;

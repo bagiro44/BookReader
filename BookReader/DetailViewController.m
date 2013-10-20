@@ -30,6 +30,8 @@
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper50.jpeg"]];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
     
+    self.paperHouseLabel.hidden = YES;
+    self.paperHouseNameLabel.hidden = YES;
     self.partTable.hidden = YES;
     self.image.hidden = YES;
     self.imageLabel.hidden = YES;
@@ -38,6 +40,7 @@
     self.genreLabel.hidden=YES;
     self.genreLabelItem.hidden=YES;
     self.addPartButton.enabled = NO;
+    self.bookTitle.hidden = YES;
     self.label.hidden = YES;
 }
 
@@ -69,9 +72,14 @@
 
 - (void) didSelectBook:(BookS *)book
 {
+    self.paperHouseLabel.hidden = NO;
+    self.paperHouseNameLabel.hidden = NO;
+    self.paperHouseNameLabel.text = [book.booktopb name];
     self.addPartButton.enabled = YES;
+    self.bookTitle.hidden = NO;
+    self.bookTitle.text = book.name;
     self.books = book;
-    self.bookTitle = book.name;
+    self.bookTitleNotLabel = book.name;
     self.image.hidden = NO;
     self.image.image = [UIImage imageWithData:book.image];
     self.imageLabel.hidden = NO;
@@ -174,6 +182,8 @@
 
 -(void) goToMain
 {
+    self.paperHouseLabel.hidden = YES;
+    self.paperHouseNameLabel.hidden = YES;
     self.partTable.hidden = YES;
     self.partTable.hidden = YES;
     self.image.hidden = YES;
@@ -187,6 +197,8 @@
     self.books = nil;
     self.partLabel.hidden = YES;
     self.addPartButton.enabled = NO;
+    self.bookTitle.hidden = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

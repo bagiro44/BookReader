@@ -47,35 +47,46 @@
 - (IBAction)SavePart:(id)sender
 {
     BOOL success = YES;
-    for (Part *item in [self.bookTO part])
+    if (self.partTitleTextField.text.length >0)
     {
-        if ([item.title isEqualToString:self.partTitleTextField.text])
+        for (Part *item in [self.bookTO part])
         {
-            UIAlertView *deleteAlert = [[UIAlertView alloc]
-                                        initWithTitle:@"Ошибка"
-                                        message:@"Глава с таким названием уже существует в книге"
-                                        delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
-            [deleteAlert show];
-            success = NO;
-            break;
+            if ([item.title isEqualToString:self.partTitleTextField.text])
+            {
+                UIAlertView *deleteAlert = [[UIAlertView alloc]
+                                            initWithTitle:@"Ошибка"
+                                            message:@"Глава с таким названием уже существует в книге"
+                                            delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+                [deleteAlert show];
+                success = NO;
+                break;
+            }
+        }if (success)
+        {
+            [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
+            if(self.itIscollectionView)
+            {
+                MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+                [navigationControllerMaster.tableView reloadData];
+            }else
+            {
+                MasterViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+                [navigationControllerMaster1.tableView reloadData];
+                DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
+                [navigationControllerMaster.partTable setHidden:NO];
+                [navigationControllerMaster.partTable reloadData];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
         }
-    }if (success)
+    }else
     {
-        [_data addBPart:self.bookTO.name number:@"0" title:self.partTitleTextField.text desc:self.partDescription.text];
-        if(self.itIscollectionView)
-        {
-            MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-            [navigationControllerMaster.tableView reloadData];
-        }else
-        {
-            MasterViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
-            [navigationControllerMaster1.tableView reloadData];
-            DetailViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
-            [navigationControllerMaster.partTable setHidden:NO];
-            [navigationControllerMaster.partTable reloadData];
-        }
-        [self.navigationController popViewControllerAnimated:YES];
+        UIAlertView *alert = [[UIAlertView alloc]
+                                    initWithTitle:@"Ошибка"
+                                    message:@"Название главы не может быть пустым..."
+                                    delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil, nil];
+        [alert show];
     }
+    
     
 }
 
@@ -127,5 +138,14 @@
     else if ([self.partTitleTextField isFirstResponder] && [touch view] != self.partTitleTextField)
     {[self.partTitleTextField resignFirstResponder];}
     [super touchesBegan:touches withEvent:event];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    
+    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"unBlockButton" object:self];
+
+    }
 }
 @end

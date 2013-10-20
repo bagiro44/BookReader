@@ -10,7 +10,18 @@
 
 @implementation DataSource
 
-
+- (NSMutableArray *) selectPublisherHouses
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PublishHouse" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSMutableArray *result= nil;
+    result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    return result;
+}
 
 
 - (NSMutableArray *) selectAuthor
@@ -71,6 +82,19 @@
     return  YES;
 }
 
+- (NSMutableArray *) seaarchBook:(NSString *)bookName author:(NSString *) author yearFrom:(NSNumber *)yearFrom yearTo:(NSNumber *) yearTo publisherHouse:(NSString *) publisherHouse
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@)", bookName];
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(autho.name CONTAINS[cd] %@)", author];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, predicate1, nil]];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setEntity:authorEntity];
+    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+}
+
+
 - (BOOL) addAuthor:(NSString *)author
 {
     NSFetchRequest *fetchRequest1 = [[NSFetchRequest alloc] init];
@@ -107,7 +131,20 @@
     return NO;
 }
 
-- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image;
+- (BOOL) addPublisherHouse:(NSString *)publisherHouse
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PublishHouse" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObjectModel *iii = [NSEntityDescription insertNewObjectForEntityForName:[entity name]  inManagedObjectContext:self.managedObjectContext];
+    
+    [iii setValue:publisherHouse forKey:@"name"];
+    if ([self saveContext])
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL) addBook:(NSString *)author year:(NSString *)year genre:(NSString *)genre name:(NSString *)name image:(NSData *)image publisherHouse:(NSString *)publisherHouse
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
@@ -133,6 +170,19 @@
     book.name = name;
     book.image = image;
     book.genre = genre;
+    
+    fetchRequest = [[NSFetchRequest alloc] init];
+    authorEntity = [NSEntityDescription entityForName:@"PublishHouse" inManagedObjectContext:self.managedObjectContext];
+    predicate = [NSPredicate predicateWithFormat:@"name == %@", publisherHouse];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setEntity:authorEntity];
+    PublishHouse *arrayPH = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    if (arrayPH == nil)
+    {
+        [self addPublisherHouse:publisherHouse];
+        arrayPH = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
+    }
+    [book setBooktopb:arrayPH];
     
     //получение автора для добавления связи с книгой
     fetchRequest = [[NSFetchRequest alloc] init];
