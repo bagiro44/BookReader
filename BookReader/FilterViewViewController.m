@@ -121,7 +121,7 @@
 - (IBAction)applyFilter:(id)sender
 {
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    NSMutableArray *arrr = [data seaarchBook:self.titleTextField.text author:self.authorTextField.text yearFrom:nil yearTo:nil publisherHouse:nil];
-    //NSLog(@"%@", [arrr count]);
+    NSMutableArray *arrr = [data seaarchBook:self.titleTextField.text author:self.authorTextField.text yearFrom:[NSNumber numberWithFloat:(slider.min*313+1700)] yearTo:[NSNumber numberWithFloat:(slider.max*313+1700)] publisherHouse:self.PHName];
+    NSLog(@"%@", [[arrr objectAtIndex:0] name]);
 }
 @end

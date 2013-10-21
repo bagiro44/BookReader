@@ -415,7 +415,8 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
             }
         }
-        else{
+        else
+        {
             if(change)
             {
                 [[(AppDelegate *)[[UIApplication sharedApplication] delegate] data] deletePart:[[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]]objectAtIndex:indexPath.row]];
@@ -429,7 +430,8 @@
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
                 
-            }}        
+            }
+        }
     }
 }
 

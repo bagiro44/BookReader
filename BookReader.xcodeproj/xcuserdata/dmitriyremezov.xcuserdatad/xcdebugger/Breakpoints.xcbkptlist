@@ -346,11 +346,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "197"
-         endingLineNumber = "197"
+         startingLineNumber = "226"
+         endingLineNumber = "226"
          landmarkName = "-addBook:year:genre:name:image:publisherHouse:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1035,11 +1035,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
          landmarkName = "-addBook:year:genre:name:image:publisherHouse:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1087,11 +1087,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "202"
-         endingLineNumber = "202"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "@implementation DataSource"
          landmarkType = "3">
       </FileBreakpoint>
@@ -1100,11 +1100,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
          landmarkName = "-addBook:year:genre:name:image:publisherHouse:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1152,11 +1152,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-addAuthor:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1746,7 +1746,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/FilterViewViewController.m"
@@ -1763,16 +1763,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
-         timestampString = "404003622.17861"
+         timestampString = "404030463.63318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-addBook:year:genre:name:image:publisherHouse:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BookReader/DataSource.m"
@@ -1782,6 +1782,32 @@
          startingLineNumber = "86"
          endingLineNumber = "86"
          landmarkName = "-seaarchBook:author:yearFrom:yearTo:publisherHouse:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/DataSource.m"
+         timestampString = "404030463.63318"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-addPublisherHouse:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BookReader/DataSource.m"
+         timestampString = "404030463.63318"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
+         landmarkName = "-addBook:year:genre:name:image:publisherHouse:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -86,9 +86,28 @@
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@)", bookName];
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(autho.name CONTAINS[cd] %@)", author];
-    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, predicate1, nil]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"year > %@", yearFrom];
+    NSPredicate *rp1 = [NSPredicate predicateWithFormat:@"year < %@", yearTo];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, rp1, nil]];
+    if ([bookName length] >0)
+    {
+        NSPredicate *pr = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@)", bookName];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, pr, nil]];
+    }
+    if ([author length] >0)
+    {
+        NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(autho.name CONTAINS[cd] %@)", author];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, predicate1, nil]];
+    }
+    if (![publisherHouse isEqualToString:@"Издательство"])
+    {
+        NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"(booktopb.name == %@)", publisherHouse];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, predicate2, nil]];
+    }else if ([publisherHouse isEqualToString:@"Нет издательства"])
+    {
+        NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"(booktopb.name == Нет издательства)", publisherHouse];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, predicate2, nil]];
+    }
     [fetchRequest setPredicate:predicate];
     [fetchRequest setEntity:authorEntity];
     return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
@@ -179,7 +198,17 @@
     PublishHouse *arrayPH = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     if (arrayPH == nil)
     {
+        if ([publisherHouse length] == 0)
+        {
+            publisherHouse = @"Нет издательства";
+        }
+        
         [self addPublisherHouse:publisherHouse];
+        fetchRequest = [[NSFetchRequest alloc] init];
+        authorEntity = [NSEntityDescription entityForName:@"PublishHouse" inManagedObjectContext:self.managedObjectContext];
+        predicate = [NSPredicate predicateWithFormat:@"name == %@", publisherHouse];
+        [fetchRequest setPredicate:predicate];
+        [fetchRequest setEntity:authorEntity];
         arrayPH = [[self.managedObjectContext executeFetchRequest:fetchRequest error:nil] lastObject];
     }
     [book setBooktopb:arrayPH];
