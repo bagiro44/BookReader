@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "RangeSlider.h"
 
+@protocol filterProtocol <NSObject>
+
+- (void) FilterResultArrayInit:(NSMutableArray *)array;
+
+@end
 
 @interface FilterViewViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property RangeSlider *slider;
+@property (nonatomic, unsafe_unretained) id<filterProtocol> masterDelegate;
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITableView *publishingHouseTable;

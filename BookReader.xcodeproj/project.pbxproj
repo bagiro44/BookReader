@@ -25,6 +25,7 @@
 		77307D51181326F100A9F487 /* PublishHouseChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77307D50181326F100A9F487 /* PublishHouseChangeViewController.m */; };
 		77307D5718132DD600A9F487 /* PublishHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 77307D5618132DD600A9F487 /* PublishHouse.m */; };
 		77307D631814948800A9F487 /* BookS.m in Sources */ = {isa = PBXBuildFile; fileRef = 77307D621814948800A9F487 /* BookS.m */; };
+		77307D6618150C7F00A9F487 /* FilterResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77307D6518150C7E00A9F487 /* FilterResultViewController.m */; };
 		7785587217EB299D0011BE62 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785587117EB299D0011BE62 /* AddBookViewController.m */; };
 		7790E32C17FC3BCF0000C187 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7790E32B17FC3BCF0000C187 /* DataSource.m */; };
 		7794364318088026006AF862 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7794364218088026006AF862 /* BookCollectionCell.m */; };
@@ -81,6 +82,8 @@
 		77307D5618132DD600A9F487 /* PublishHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishHouse.m; sourceTree = "<group>"; };
 		77307D611814948800A9F487 /* BookS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookS.h; sourceTree = "<group>"; };
 		77307D621814948800A9F487 /* BookS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookS.m; sourceTree = "<group>"; };
+		77307D6418150C7E00A9F487 /* FilterResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterResultViewController.h; sourceTree = "<group>"; };
+		77307D6518150C7E00A9F487 /* FilterResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterResultViewController.m; sourceTree = "<group>"; };
 		7785587017EB299D0011BE62 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBookViewController.h; path = BookReader/AddBookViewController.h; sourceTree = "<group>"; };
 		7785587117EB299D0011BE62 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBookViewController.m; path = BookReader/AddBookViewController.m; sourceTree = "<group>"; };
 		7790E32A17FC3BCF0000C187 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = BookReader/DataSource.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				7702DAE11804421E00644A99 /* PartViewController.m */,
 				7714FB2317EB2FD2008FB091 /* MasterViewController.h */,
 				770B20C217E766D000AF23FB /* MasterViewController.m */,
+				77307D6418150C7E00A9F487 /* FilterResultViewController.h */,
+				77307D6518150C7E00A9F487 /* FilterResultViewController.m */,
 				770B20C417E7674400AF23FB /* DetailViewController.h */,
 				770B20C517E7674400AF23FB /* DetailViewController.m */,
 				771E954417F473E1004C46D4 /* PopoverViewController.h */,
@@ -376,6 +381,7 @@
 				77307D51181326F100A9F487 /* PublishHouseChangeViewController.m in Sources */,
 				77307D5718132DD600A9F487 /* PublishHouse.m in Sources */,
 				77307D631814948800A9F487 /* BookS.m in Sources */,
+				77307D6618150C7F00A9F487 /* FilterResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

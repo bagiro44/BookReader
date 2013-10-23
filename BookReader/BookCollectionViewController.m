@@ -97,6 +97,7 @@
 {
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
     [navigationControllerMaster setChange:YES];
+    navigationControllerMaster.tableView.tableHeaderView = nil;
     [navigationControllerMaster.navigationItem setTitle:[NSString stringWithFormat:@"%@",[[[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]]];
     self.bookToAddPArt = [[[[self.author book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row];
     [navigationControllerMaster setSelectBook:self.bookToAddPArt];

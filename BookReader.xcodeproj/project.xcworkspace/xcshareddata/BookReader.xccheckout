@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>775D9DCD-029D-4FDE-AD12-9DDF6137DBC9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BookReader</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>54BC2616-B653-447C-ADA2-39E2E6A3F9FD</key>
+		<string>https://github.com/bagiro44/BookReader.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BookReader.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>54BC2616-B653-447C-ADA2-39E2E6A3F9FD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bagiro44/BookReader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>54BC2616-B653-447C-ADA2-39E2E6A3F9FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>54BC2616-B653-447C-ADA2-39E2E6A3F9FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BookReader</string>
+		</dict>
+	</array>
+</dict>
+</plist>

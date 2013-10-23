@@ -35,7 +35,6 @@
     self.partDescription.text = self.parttt.descriptionpart;
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
     [navigationControllerMaster.searchDisplayController setActive:NO animated:YES];
-    navigationControllerMaster.tableView.contentOffset = CGPointMake(0,0);
     navigationControllerMaster.tableView.tableHeaderView = nil;
 }
 
@@ -47,12 +46,17 @@
         MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
         [navigationControllerMaster setChange:NO];
         [navigationControllerMaster setSelectBook:nil];
-        [navigationControllerMaster.navigationItem setTitle:@""];
+        //[navigationControllerMaster.navigationItem setTitle:@""];
+        [navigationControllerMaster.navigationController popToRootViewControllerAnimated:YES];
+        
+
         [navigationControllerMaster.tableView reloadData];
         
         DetailViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
         if([navigationControllerMaster1 isMemberOfClass:[DetailViewController class]])
         {
+            [navigationControllerMaster changeSearchMode:@"0"];
+            
             [navigationControllerMaster1.partTable reloadData];
             navigationControllerMaster.tableView.contentOffset = CGPointMake(0, navigationControllerMaster.searchDisplayController.searchBar.frame.size.height);
             navigationControllerMaster.tableView.tableHeaderView = navigationControllerMaster.searchBar;
@@ -60,15 +64,12 @@
         }
         else
         {
+             [navigationControllerMaster changeSearchMode:@"1"];
             BookCollectionViewController *navigationControllerMaster1 = [[[self.splitViewController.viewControllers lastObject] viewControllers] objectAtIndex:0];
             navigationControllerMaster1.canIAddPart = NO;
             navigationControllerMaster1.BookCollection.hidden = NO;
-            //navigationControllerMaster.tableView.contentOffset = CGPointMake(0, 0);
-            //navigationControllerMaster.tableView.tableHeaderView = nil;
             [navigationControllerMaster.searchDisplayController setActive:NO animated:YES];
         }
-
-        //[navigationControllerMaster.detailDelegate goToMain];
     }
 }
 

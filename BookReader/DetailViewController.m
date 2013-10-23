@@ -72,14 +72,17 @@
 
 - (void) didSelectBook:(BookS *)book
 {
+    
     self.paperHouseLabel.hidden = NO;
     self.paperHouseNameLabel.hidden = NO;
     self.paperHouseNameLabel.text = [book.booktopb name];
     self.addPartButton.enabled = YES;
     self.bookTitle.hidden = NO;
     self.bookTitle.text = book.name;
+    NSLog(@"%@", book.name);
     self.books = book;
     self.bookTitleNotLabel = book.name;
+    NSLog(@"%@", self.bookTitleNotLabel);
     self.image.hidden = NO;
     self.image.image = [UIImage imageWithData:book.image];
     self.imageLabel.hidden = NO;
@@ -87,6 +90,7 @@
     self.yearLabelItem.hidden = NO;
     self.imageButton.hidden = NO;
     self.yearLabelItem.text = [book.year stringValue];
+    NSLog(@"%@", self.yearLabelItem.text);
     self.genreLabel.hidden=NO;
     self.genreLabelItem.hidden = NO;
     self.genreLabelItem.text = book.genre;
@@ -152,6 +156,7 @@
     
     MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
     [navigationControllerMaster setChange:YES];
+    navigationControllerMaster.tableView.tableHeaderView = nil;
     [navigationControllerMaster setSelectBook:self.books];
     [navigationControllerMaster.tableView reloadData];
 }
@@ -239,6 +244,12 @@
     addPartViewController.bookTO = self.books;
     [self.navigationController pushViewController:addPartViewController animated:YES];
     
+}
+- (void) didSelectAuthor:(Author *)auth
+{
+    MasterViewController *navigationControllerMaster = [[[self.splitViewController.viewControllers objectAtIndex:0] viewControllers] objectAtIndex:0];
+
+    [self changeDetail:navigationControllerMaster];
 }
 
 - (void) changeDetail:(id)controller

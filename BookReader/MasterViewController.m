@@ -16,7 +16,7 @@
 
 @implementation MasterViewController
 
-@synthesize detailDelegate, authorS, change, selectBook, albumMode, searchBar, searchDisplayController;
+@synthesize detailDelegate, authorS, change, selectBook, albumMode, searchBar, searchDisplayController, showFilterButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -57,7 +57,7 @@
         albumMode = NO;
         if (change == NO)
         {
-            searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 40, 320, 44)];
+            searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 42, 320, 44)];
             searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
             
             searchDisplayController.delegate = self;
@@ -66,15 +66,13 @@
             self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
             UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
             
-            UIButton *showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [showFilterButton addTarget:self
                        action:@selector(showFilter:)
              forControlEvents:UIControlEventTouchUpInside];
             
             [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
             showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
-            //UIButton *showFilter = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, 200, 44)];
-            //showFilter.titleLabel.text = @"Фильтр";
             [headerViewToAdd addSubview:showFilterButton];
             [headerViewToAdd addSubview:searchBar];
             self.tableView.tableHeaderView = headerViewToAdd;
@@ -86,6 +84,21 @@
         searchBar.hidden = YES;
         [self.tableView reloadData];
         [self.detailDelegate changeDetail:self];
+       if (change == NO)
+            {
+                UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+                
+                showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [showFilterButton addTarget:self
+                                     action:@selector(showFilter:)
+                           forControlEvents:UIControlEventTouchUpInside];
+                
+                [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+                showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+                [headerViewToAdd addSubview:showFilterButton];
+                self.tableView.tableHeaderView = headerViewToAdd;
+            }
+            
     }
     
     DataSource *data = [(AppDelegate *)[[UIApplication sharedApplication] delegate] data];
@@ -117,6 +130,45 @@
 - (IBAction)mainView:(id)sender
 {
     [self.detailDelegate goToMain];
+    self.tableView.tableHeaderView = nil;
+    if (albumMode)
+    {
+        UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        
+        showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [showFilterButton addTarget:self
+                             action:@selector(showFilter:)
+                   forControlEvents:UIControlEventTouchUpInside];
+        
+        [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+        showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+        [headerViewToAdd addSubview:showFilterButton];
+        [headerViewToAdd addSubview:searchBar];
+            self.tableView.tableHeaderView = headerViewToAdd;
+    }
+    else
+    {
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 42, 320, 44)];
+    searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    
+    searchDisplayController.delegate = self;
+    searchDisplayController.searchResultsDataSource = self;
+    searchDisplayController.searchResultsDelegate = self;
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+    UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+    
+    showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [showFilterButton addTarget:self
+                         action:@selector(showFilter:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+    showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+    [headerViewToAdd addSubview:showFilterButton];
+    [headerViewToAdd addSubview:searchBar];
+            self.tableView.tableHeaderView = headerViewToAdd;
+    }
+
     self.change = NO;
     [self.tableView reloadData];
 }
@@ -202,6 +254,7 @@
         else
         {
             return [[[authorS objectAtIndex:section] book] count];
+
         }}
         
     }
@@ -250,8 +303,15 @@
             }
             else
             {
+                if (_filterResult)
+                {
+                    cell.textLabel.text = [[[self.filterResultArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] objectAtIndex:indexPath.row] name];
+                }
+                else
+                {
                 cell.textLabel.text = [NSString stringWithFormat: @"%@", [[[[[[authorS objectAtIndex:indexPath.section] book] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]]objectAtIndex:indexPath.row] name]];
-                cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
+                }
+                //cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookBackground.png"]];
             }
             return cell;
             }
@@ -278,12 +338,14 @@
         if(change)
         {
             [self.detailDelegate showPart: [[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
-        }else{
-        Author *selectedBook = [self.authorS objectAtIndex:indexPath.row];
-        [self.detailDelegate didSelectAuthor:selectedBook];
+        }else
+        {
+            Author *selectedBook = [self.authorS objectAtIndex:indexPath.row];
+            [self.detailDelegate didSelectAuthor:selectedBook];
         }
     }
     else{
+
     if(change)
     {
         [self.detailDelegate showPart: [[[[self.selectBook part] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]] objectAtIndex:indexPath.row]];
@@ -294,6 +356,15 @@
         [self.detailDelegate didSelectBook:selectBook];
 
     }}}
+}
+
+- (void) FilterResultArrayInit:(NSMutableArray *)array
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    FilterResultViewController *filterResultController= (FilterResultViewController *)[storyboard instantiateViewControllerWithIdentifier:@"filterResultView"];
+    [self.navigationController pushViewController:filterResultController animated:YES];
+    filterResultController.resultArray = array;
+    [self.FilterPopoverController dismissPopoverAnimated:YES];
 }
 
 - (IBAction)AddBook:(id)sender
@@ -350,16 +421,24 @@
             if (change == NO)
             {
                 albumMode = NO;
-                searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+                searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 42, 320, 44)];
                 searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
                 
                 searchDisplayController.delegate = self;
                 searchDisplayController.searchResultsDataSource = self;
                 searchDisplayController.searchResultsDelegate = self;
                 self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
-                UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+                UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+                
+                showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [showFilterButton addTarget:self
+                                     action:@selector(showFilter:)
+                           forControlEvents:UIControlEventTouchUpInside];
+                
+                [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+                showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+                [headerViewToAdd addSubview:showFilterButton];
                 [headerViewToAdd addSubview:searchBar];
-                //[headerViewToAdd addSubview:searchBar];
                 self.tableView.tableHeaderView = headerViewToAdd;
             }
             
@@ -374,10 +453,20 @@
         {
             albumMode = YES;
             [searchDisplayController setActive:NO animated:YES];
-            [searchBar removeFromSuperview];
+            //[searchBar removeFromSuperview];
             
             self.tableView.contentOffset = CGPointMake(0, 0);
-            self.tableView.tableHeaderView = nil;
+            UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+            
+            showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [showFilterButton addTarget:self
+                                 action:@selector(showFilter:)
+                       forControlEvents:UIControlEventTouchUpInside];
+            
+            [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+            showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+            [headerViewToAdd addSubview:showFilterButton];
+            self.tableView.tableHeaderView = headerViewToAdd;
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadTable" object:self];
             [self.detailDelegate changeDetail:self];
@@ -487,12 +576,58 @@
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         self.filterView = (FilterViewViewController *)[storyboard instantiateViewControllerWithIdentifier:@"filterView"];
+        self.filterView.masterDelegate = self;
     }
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.filterView];
     
     self.FilterPopoverController=[[UIPopoverController alloc] initWithContentViewController:navigationController];
     self.FilterPopoverController.delegate=self;    
     [self.FilterPopoverController presentPopoverFromRect:((UIButton *)sender).bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void) changeSearchMode:(NSString *)mode
+{
+    if ([mode isEqualToString:@"0"])
+    {
+        searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 42, 320, 44)];
+        searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        
+        searchDisplayController.delegate = self;
+        searchDisplayController.searchResultsDataSource = self;
+        searchDisplayController.searchResultsDelegate = self;
+        self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
+        UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+        
+        showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [showFilterButton addTarget:self
+                             action:@selector(showFilter:)
+                   forControlEvents:UIControlEventTouchUpInside];
+        
+        [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+        showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+        [headerViewToAdd addSubview:showFilterButton];
+        [headerViewToAdd addSubview:searchBar];
+        self.tableView.tableHeaderView = headerViewToAdd;
+    }
+    else if ([mode isEqualToString:@"1"])
+    {
+        UIView *headerViewToAdd = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        
+        showFilterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [showFilterButton addTarget:self
+                             action:@selector(showFilter:)
+                   forControlEvents:UIControlEventTouchUpInside];
+        
+        [showFilterButton setTitle:@" Фильтр " forState:UIControlStateNormal];
+        showFilterButton.frame = CGRectMake(0, 0, 320, 40.0);
+        [headerViewToAdd addSubview:showFilterButton];
+        [headerViewToAdd addSubview:searchBar];
+        self.tableView.tableHeaderView = headerViewToAdd;        
+    }
+    else if ([mode isEqualToString:@"2"])
+    {
+         self.tableView.tableHeaderView = nil;
+    }
 }
 @end
 

@@ -86,8 +86,8 @@
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *authorEntity = [NSEntityDescription entityForName:@"BookS" inManagedObjectContext:self.managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"year > %@", yearFrom];
-    NSPredicate *rp1 = [NSPredicate predicateWithFormat:@"year < %@", yearTo];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"year >= %@", yearFrom];
+    NSPredicate *rp1 = [NSPredicate predicateWithFormat:@"year <= %@", yearTo];
     predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:predicate, rp1, nil]];
     if ([bookName length] >0)
     {
